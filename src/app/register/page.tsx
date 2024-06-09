@@ -57,20 +57,96 @@ export default function Register() {
   };
   return (
     <div>
-      <h1>Register</h1>
-      <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Full Name" name="fullName" />
-        <input type="email" placeholder="Email" name="email" />
-        <input type="text" placeholder="Username" name="username" />
-        <input type="password" placeholder="Password" name="password" />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          name="confirmPassword"
-        />
-        <button type="submit">Register</button>
-      </form>
-      {error && <p>{error}</p>}
+      <section className="bg-white">
+        <div className="w-full mx-auto max-w-xl flex flex-col justify-center py-24  relative p-8">
+          <form
+            className="w-full divide-neutral-200 rounded-3xl bg-white shadow-2xl border p-8 lg:p-10"
+            onSubmit={onSubmit}
+          >
+            <h1 className="font-bold text-[22px]">Register</h1>
+            <div className="py-2 space-y-3">
+              {" "}
+              <label className="block text-sm text-gray-700">
+                Full Name
+              </label>{" "}
+              <input
+                type="text"
+                name="fullName"
+                className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
+                placeholder="Enter your Busniess name"
+              />
+              <p x-show="!loginEmail" className="text-red-500 text-xs mt-1">
+                Full Name is required
+              </p>
+            </div>
+
+            <div className="py-2 space-y-3">
+              {" "}
+              <label className="block text-sm text-gray-700">
+                Busniess Name
+              </label>{" "}
+              <input
+                type="text"
+                name="username"
+                className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
+                placeholder="Enter your Busniess name"
+              />
+              <p x-show="!loginEmail" className="text-red-500 text-xs mt-1">
+                Busniess name is required
+              </p>
+            </div>
+            <div className="py-2 space-y-3">
+              {" "}
+              <label className="block text-sm text-gray-700">Email</label>{" "}
+              <input
+                type="email"
+                name="email"
+                className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs"
+                placeholder="Enter your email"
+              />
+              <p x-show="!loginEmail" className="text-red-500 text-xs mt-1">
+                Email is required
+              </p>
+            </div>
+            <div className="py-2 space-y-3">
+              {" "}
+              <label className="block text-sm text-gray-700">Password</label>
+              <div className="relative">
+                {" "}
+                <input
+                  className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs"
+                  placeholder="Enter your password"
+                  type="password"
+                  name="password"
+                />{" "}
+              </div>
+            </div>
+            <div className="py-2 space-y-3">
+              {" "}
+              <label className="block text-sm text-gray-700">Confirm Password</label>
+              <div className="relative">
+                {" "}
+                <input
+                  className="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs"
+                  placeholder="Enter your password"
+                  type="password"
+                  name="confirmPassword"
+                />{" "}
+              </div>
+              {error && <p>{error}</p>}
+            </div>
+            <div className="mt-4">
+              {" "}
+              <button
+                type="submit"
+                className="rounded-full bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+              >
+                Register
+              </button>{" "}
+            </div>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }
