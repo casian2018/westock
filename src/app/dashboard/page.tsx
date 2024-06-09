@@ -1,4 +1,4 @@
-export function dashboard() {
+export default function dashboard() {
   return (
     <div className="bg-orange-100 min-h-screen">
       <div className="fixed bg-white text-blue-800 px-10 py-1 z-10 w-full">
