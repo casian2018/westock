@@ -41,23 +41,23 @@ const objectsPage = () => {
   
             <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
               <a
-                href=""
+                href="/profile"
                 className="inline-block text-gray-600 hover:text-black my-4 w-full"
               >
                 Profile
               </a>
               <a
-                href=""
-                className="inline-block text-gray-600 hover:text-black my-4 w-full"
-              >
-                Settings
-              </a>
-              <a
-                href=""
-                className="inline-block text-gray-600 hover:text-black my-4 w-full"
-              >
-                Log out
-              </a>
+              href="/settings"
+              className="inline-block text-gray-600 hover:text-black my-4 w-full"
+            >
+              Settings
+            </a>
+            <a
+              href="/logout"
+              className="inline-block text-gray-600 hover:text-black my-4 w-full"
+            >
+              Log out
+            </a>
             </div>
           </div>
 
