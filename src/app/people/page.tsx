@@ -72,6 +72,7 @@ const peoplePage = () => {
                 <thead>
                     <tr>
                         <th className="py-2 px-4 border-b">Name</th>
+                        <th className="py-2 px-4 border-b">Email</th>
                         <th className="py-2 px-4 border-b">Function</th>
                         <th className="py-2 px-4 border-b">Location</th>
                     </tr>
@@ -79,16 +80,19 @@ const peoplePage = () => {
                 <tbody>
                     <tr>
                         <td className="py-2 px-4 border-b">John Doe</td>
+                        <td className="py-2 px-4 border-b">a@email.com</td>
                         <td className="py-2 px-4 border-b">Developer</td>
                         <td className="py-2 px-4 border-b">New York</td>
                     </tr>
                     <tr>
                         <td className="py-2 px-4 border-b">Jane Smith</td>
+                        <td className="py-2 px-4 border-b">a@email.com</td>
                         <td className="py-2 px-4 border-b">Designer</td>
                         <td className="py-2 px-4 border-b">San Francisco</td>
                     </tr>
                     <tr>
                         <td className="py-2 px-4 border-b">Mike Johnson</td>
+                        <td className="py-2 px-4 border-b">a@email.com</td>
                         <td className="py-2 px-4 border-b">Manager</td>
                         <td className="py-2 px-4 border-b">London</td>
                     </tr>
