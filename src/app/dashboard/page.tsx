@@ -4,11 +4,10 @@ export default function dashboard() {
       <div className="fixed bg-white text-blue-800 px-10 py-1 z-10 w-full">
         <div className="flex items-center justify-between py-2 text-5x1">
           <div className="font-bold text-blue-900 text-xl">
-            Admin<span className="text-orange-600">Panel</span>
+            We<span className="text-orange-600">Stock</span>
           </div>
           <div className="flex items-center text-gray-500">
-            <span className="material-icons-outlined p-2">search</span>
-            <span className="material-icons-outlined p-2">notifications</span>
+            <input className="material-icons-outlined p-2" placeholder="Search" />
             <div className="bg-center bg-cover bg-no-repeat rounded-full inline-block h-12 w-12 ml-2"></div>
           </div>
         </div>
@@ -120,16 +119,223 @@ export default function dashboard() {
               </a>
             </div>
           </div>
-          <div className="flex flex-row h-64 mt-6">
-            <div className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-              a
-            </div>
-            <div className="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
-              b
-            </div>
-            <div className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
-              c
-            </div>
+          <div className="flex flex-row mt-6">
+            <ul className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
+              <h1 className="font-bold text-[22px]">Manage Stocks</h1>
+                <li>
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 1
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 1
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-green-600">Active</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 2
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 2
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-red-600">Inactive</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 3
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 3
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-yellow-600">Pending</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            <ul className="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
+              <h1 className="font-bold text-[22px]">Manage People</h1>
+              <li>
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 1
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 1
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-green-600">Active</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 2
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 2
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-red-600">Inactive</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 3
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 3
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-yellow-600">Pending</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+            <ul className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
+              <h1 className="font-bold text-[22px]">Manage Objects</h1>
+              <li>
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 1
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 1
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-green-600">Active</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 2
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 2
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-red-600">Inactive</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li className="border-t border-gray-200">
+                  <div className="px-4 py-5 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        Item 3
+                      </h3>
+                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Description for Item 3
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm font-medium text-gray-500">
+                        Status: <span className="text-yellow-600">Pending</span>
+                      </p>
+                      <a
+                        href="#"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        Edit
+                      </a>
+                    </div>
+                  </div>
+                </li>
+            </ul>
           </div>
         </div>
       </div>
