@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:20vw;
+    padding-right: 20vw;
+  }
