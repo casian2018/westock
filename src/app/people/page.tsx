@@ -7,7 +7,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 
 const peoplePage = () => {
-    const session = useSession();
+  const session = useSession();
   const user = useUser();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const peoplePage = () => {
 
     fct();
   }, [session.status]);
-  
+
   return (
     <div className="min-h-screen">
       <DashboardHeader />
@@ -54,62 +54,13 @@ const peoplePage = () => {
               </tr>
             </thead>
             <tbody className="bg-white">
-              <tr>
-                <td className="py-4 px-6 border-b border-gray-200">John Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">
-                  johndoe@gmail.com
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  555-555-5555
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
-                    Active
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">
-                  janedoe@gmail.com
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  555-555-5555
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-                    Inactive
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">
-                  janedoe@gmail.com
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  555-555-5555
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-                    Inactive
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td className="py-4 px-6 border-b border-gray-200 truncate">
-                  janedoe@gmail.com
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  555-555-5555
-                </td>
-                <td className="py-4 px-6 border-b border-gray-200">
-                  <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-                    Inactive
-                  </span>
-                </td>
-              </tr>
+              {user.user?.people.map((pers) => (
+                <TableRow
+                  name={pers.name}
+                  email={pers.email}
+                  location={pers.location}
+                ></TableRow>
+              ))}
             </tbody>
           </table>
         </div>
@@ -118,4 +69,25 @@ const peoplePage = () => {
   );
 };
 
-export default peoplePage;
+function TableRow({
+  name,
+  email,
+  location,
+}: {
+  name: string;
+  email: string;
+  location: string;
+}) {
+  return (
+    <tr>
+      <td className="py-4 px-6 border-b border-gray-200">{name}</td>
+      <td className="py-4 px-6 border-b border-gray-200 truncate">{email}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{location}</td>
+      <td className="py-4 px-6 border-b border-gray-200">
+        <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
+          Inactive
+        </span>
+      </td>
+    </tr>
+  );
+}
