@@ -26,40 +26,22 @@ export default function dashboard() {
         <div className="w-2/12 mr-6">
           <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
             <a
-              href=""
+              href="/stock"
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                dashboard
-              </span>
-              Home
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
+              Stock
             </a>
             <a
-              href=""
+              href="/people"
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                tune
-              </span>
-              Some menu item
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
+              People
             </a>
             <a
-              href=""
+              href="/objects"
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                file_copy
-              </span>
-              Another menu item
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
+              Objects
             </a>
           </div>
 
@@ -68,37 +50,19 @@ export default function dashboard() {
               href=""
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                face
-              </span>
               Profile
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
             </a>
             <a
               href=""
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                settings
-              </span>
               Settings
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
             </a>
             <a
               href=""
               className="inline-block text-gray-600 hover:text-black my-4 w-full"
             >
-              <span className="material-icons-outlined float-left pr-2">
-                power_settings_new
-              </span>
               Log out
-              <span className="material-icons-outlined float-right">
-                keyboard_arrow_right
-              </span>
             </a>
           </div>
         </div>
@@ -117,14 +81,14 @@ export default function dashboard() {
 
             <div className="bg-no-repeat bg-orange-200 border border-orange-300 rounded-xl w-5/12 ml-2 p-6">
               <p className="text-5xl text-indigo-900">
-                Inbox <br />
+                People <br />
                 <strong>23</strong>
               </p>
               <a
-                href=""
+                href="/people"
                 className="bg-orange-300 text-xl text-white underline hover:no-underline inline-block rounded-full mt-12 px-8 py-2"
               >
-                <strong>See messages</strong>
+                <strong>See People</strong>
               </a>
             </div>
           </div>
@@ -144,52 +108,6 @@ export default function dashboard() {
                   <div className="mt-4 flex items-center justify-between">
                     <p className="text-sm font-medium text-gray-500">
                       Status: <span className="text-green-600">Active</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 2
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 2
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-red-600">Inactive</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 3
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 3
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-yellow-600">Pending</span>
                     </p>
                     <a
                       href="#"
@@ -226,52 +144,6 @@ export default function dashboard() {
                   </div>
                 </div>
               </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 2
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 2
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-red-600">Inactive</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 3
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 3
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-yellow-600">Pending</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
             </ul>
             <ul className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
               <h1 className="font-bold text-[22px]">Manage Objects</h1>
@@ -288,52 +160,6 @@ export default function dashboard() {
                   <div className="mt-4 flex items-center justify-between">
                     <p className="text-sm font-medium text-gray-500">
                       Status: <span className="text-green-600">Active</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 2
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 2
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-red-600">Inactive</span>
-                    </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="border-t border-gray-200">
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 3
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 3
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-yellow-600">Pending</span>
                     </p>
                     <a
                       href="#"
