@@ -1,7 +1,7 @@
-[ ] - index (present the web app)
-[ ] - login
+[x] - index (present the web app)
+[x] - login
 [ ] - users
-[ ] - register
+[x] - register
 [ ] - profile
 [ ] - dashboard
 [ ] - stock

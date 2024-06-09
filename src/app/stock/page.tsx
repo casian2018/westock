@@ -1,9 +1,52 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+import { useUser } from "../Providers/UserProvider";
+import { useEffect, useState } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
+import StockModal from "../components/StockModal";
+import axios from "axios";
 
-const stock = () => {
+const Stock = () => {
+  const session = useSession();
+  const { user, getUserData } = useUser();
+  const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (session.status === "authenticated") {
+        const email = session.data?.user?.email || "";
+        await getUserData(email);
+        setLoading(false); // Set loading to false after data is fetched
+      }
+    };
+
+    fetchData();
+  }, [session.status]);
+
+  const handleSaveStockItem = async (stockItem: any) => {
+    if (session.status === "authenticated") {
+      const email = session.data?.user?.email || "";
+      try {
+        await axios.post('/api/user/stock', {
+          email,
+          stockItem
+        });
+        await getUserData(email); // Refresh user data
+      } catch (error) {
+        console.error('Error saving stock item', error);
+      }
+    }
+  };
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading state until data is fetched
+  }
+
   return (
-    <div className="bg-orange-100 min-h-screen">
+    <div className="min-h-screen">
       <DashboardHeader />
 
       <div className="flex flex-row pt-24 px-10 pb-4">
@@ -13,7 +56,10 @@ const stock = () => {
           <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
             <div className="flex justify-between items-center">
               <h1 className="text-xl font-bold">Stock</h1>
-              <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
+              <button
+                className="bg-blue-500 text-white rounded-lg px-4 py-2"
+                onClick={() => setShowModal(true)}
+              >
                 Add Stock
               </button>
             </div>
@@ -21,58 +67,34 @@ const stock = () => {
               <thead>
                 <tr>
                   <th className="text-left">Name</th>
+                  <th className="text-left">Link</th>
                   <th className="text-left">Quantity</th>
                   <th className="text-left">Price</th>
-                  <th className="text-left">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Item 1</td>
-                  <td>10</td>
-                  <td>100</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Item 2</td>
-                  <td>20</td>
-                  <td>200</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Item 3</td>
-                  <td>30</td>
-                  <td>300</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                {user?.stock?.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.item}</td>
+                    <td>{item.link}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.price}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </div>
+
+      {showModal && (
+        <StockModal
+          onClose={() => setShowModal(false)}
+          onSave={handleSaveStockItem}
+        />
+      )}
     </div>
   );
 };
 
-export default stock;
+export default Stock;

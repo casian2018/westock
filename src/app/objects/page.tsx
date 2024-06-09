@@ -1,9 +1,28 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+import { useUser } from "../Providers/UserProvider";
+import { useEffect } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 
 const objectsPage = () => {
+    const session = useSession();
+  const user = useUser();
+
+  useEffect(() => {
+    let fct = async () => {
+      if (session.status === "authenticated") {
+        await user.getUserData(session.data?.user?.email || "");
+      }
+      console.log(session);
+    };
+
+    fct();
+  }, [session.status]);
+  
   return (
-    <div className="bg-orange-100 min-h-screen">
+    <div className="min-h-screen">
       <DashboardHeader />
 
       <div className="flex flex-row pt-24 px-10 pb-4">

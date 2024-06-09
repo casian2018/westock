@@ -22,7 +22,7 @@ export default function dashboard() {
   }, [session.status]);
 
   return (
-    <div className="bg-orange-100 min-h-screen">
+    <div className="min-h-screen">
       <DashboardHeader />
 
       <div className="flex flex-row pt-24 px-10 pb-4">

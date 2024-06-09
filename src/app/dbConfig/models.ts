@@ -23,6 +23,18 @@ const user = new mongoose.Schema({
     type: String,
     required: true,
   },
+  stock: {
+    type: Array,
+    required: true,
+  },
+  people: {
+    type: Array,
+    required: true,
+  },
+  objects: {
+    type: Array,
+    required: true,
+  },
 });
 
 export const userModel =
