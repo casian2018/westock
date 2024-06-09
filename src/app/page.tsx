@@ -1,4 +1,4 @@
-import Image from "next/image";
+import logo from "@/assets/WeStock_1.svg";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
               <a aria-current="page" className="flex items-center" href="/">
                 <img
                   className="h-7 w-auto"
-                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  src={logo.src}
                   alt=""
                 />
                 <p className="sr-only">WeStock</p>
