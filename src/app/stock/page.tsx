@@ -13,17 +13,8 @@ const Stock = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (session.status === "authenticated") {
-        const email = session.data?.user?.email || "";
-        try {
-          const response = await axios.get(`/api/user`, {
-            params: { email },
-          });
-          setUserData(response.data);
-        } catch (error) {
-          console.error("Error fetching user data", error);
-        }
-      }
+      
+       
     };
 
     fetchData();
