@@ -1,24 +1,44 @@
-import { createContext, useState } from "react";
-import connectDB from "../dbConfig/db";
-import { userModel } from "../dbConfig/models";
+"use client";
 
-const UserContext = createContext(null);
+import { createContext, useContext, useState } from "react";
+import getUserDataFct from "../api/auth/getUserData";
+
+interface User {
+  _id: string;
+  authType: string;
+  fullName: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
+const UserContext = createContext({
+  user: {} as User | null,
+  getUserData: async (email: string) => {},
+});
 
 function UserProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   const getUserData = async (email: string) => {
-    "use server";
+    const usrs = await getUserDataFct(email);
 
-    connectDB();
-
-    try {
-      const users = await userModel.findOne({ email: email });
-      setUser(users);
-    } catch (error) {
-      console.error("Error: ", error);
-    }
+    setUser(JSON.parse(usrs || "{}"));
   };
 
-  return <UserContext.Provider value={null}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, getUserData }}>
+      {children}
+    </UserContext.Provider>
+  );
 }
+
+function useUser() {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
+}
+
+export { UserProvider, UserContext, useUser };

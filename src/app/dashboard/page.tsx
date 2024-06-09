@@ -1,9 +1,23 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useUser } from "../Providers/UserProvider";
+import { useEffect } from "react";
 
 export default function dashboard() {
   const session = useSession();
+  const user = useUser();
+
+  useEffect(() => {
+    let fct = async () => {
+      if (session.status === "authenticated") {
+        await user.getUserData(session.data?.user?.email || "");
+      }
+      console.log(session);
+    };
+
+    fct();
+  }, [session.status]);
 
   return (
     <div className="bg-orange-100 min-h-screen">
@@ -72,7 +86,7 @@ export default function dashboard() {
             <div className="bg-no-repeat bg-red-200 border border-red-300 rounded-xl w-7/12 mr-2 p-6">
               <p className="text-5xl text-indigo-900">
                 Welcome <br />
-                <strong>{session.data?.user?.email}</strong>
+                <strong>{user.user?.fullName}</strong>
               </p>
               <span className="bg-red-300 text-xl text-white inline-block rounded-full mt-12 px-8 py-2">
                 <strong>01:51</strong>
