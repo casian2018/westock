@@ -27,6 +27,7 @@ export default async function register(
     let encPass = bcrypt.hashSync(password, 10);
 
     let user = new userModel({
+      authType: "credentials",
       fullName,
       email,
       username,

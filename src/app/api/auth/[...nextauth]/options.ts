@@ -10,8 +10,8 @@ export const options: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: {
-          label: "Username: ",
+        email: {
+          label: "Email: ",
           type: "text",
           placeholder: "Jeg cacat",
         },
@@ -24,10 +24,10 @@ export const options: NextAuthOptions = {
         await connectDB();
 
         let pass = credentials?.password as string;
-        let user = credentials?.username as string;
+        let email = credentials?.email as string;
 
         try {
-          const users = await userModel.findOne({ username: user });
+          const users = await userModel.findOne({ email: email });
           if (!users) {
             return null;
           }
@@ -49,7 +49,7 @@ export const options: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
-  //   pages: {
-  //     signIn: "/login",
-  //   },
+  pages: {
+    signIn: "/login",
+  },
 };

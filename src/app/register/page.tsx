@@ -49,7 +49,7 @@ export default function Register() {
     }
 
     await signIn("credentials", {
-      username,
+      email,
       password,
       redirect: true,
       callbackUrl: "/dashboard",
@@ -123,7 +123,9 @@ export default function Register() {
             </div>
             <div className="py-2 space-y-3">
               {" "}
-              <label className="block text-sm text-gray-700">Confirm Password</label>
+              <label className="block text-sm text-gray-700">
+                Confirm Password
+              </label>
               <div className="relative">
                 {" "}
                 <input

@@ -3,6 +3,10 @@
 import mongoose from "mongoose";
 
 const user = new mongoose.Schema({
+  authType: {
+    type: String,
+    required: true,
+  },
   fullName: {
     type: String,
     required: true,
