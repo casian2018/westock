@@ -2,6 +2,7 @@ import connectDB from "@/app/dbConfig/db";
 import { userModel } from "@/app/dbConfig/models";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 
 export const options: NextAuthOptions = {
@@ -41,6 +42,11 @@ export const options: NextAuthOptions = {
           return null;
         }
       },
+    }),
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   pages: {

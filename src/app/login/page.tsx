@@ -1,9 +1,13 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
-export default function Login() {
+type Props = {
+  searchParams?: Record<"callbackUrl" | "error", string>;
+};
+
+export default function Login(props: Props) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -17,6 +21,12 @@ export default function Login() {
       callbackUrl: "/dashboard",
     });
   };
+
+  let err = props.searchParams?.error;
+
+  if (err === "CredentialsSignin") {
+    err = "Invalid username or password";
+  }
 
   return (
     <div>
@@ -32,6 +42,7 @@ export default function Login() {
         </label>
         <button type="submit">Sign in</button>
       </form>
+      {err && <p>{err}</p>}
     </div>
   );
 }
