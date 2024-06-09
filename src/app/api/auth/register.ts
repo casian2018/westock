@@ -32,6 +32,9 @@ export default async function register(
       email,
       username,
       password: encPass,
+      stock: [],
+      people: [],
+      objects: [],
     });
 
     await user.save();
