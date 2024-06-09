@@ -13,14 +13,15 @@ export default function Login() {
     await signIn("credentials", {
       username: formData.get("username") as string,
       password: formData.get("password") as string,
+      redirect: true,
+      callbackUrl: "/dashboard",
     });
   };
 
   return (
     <div>
       <h1>Login</h1>
-      <form method="post" onSubmit={handleSubmit}>
-        <input name="csrfToken" type="hidden" />
+      <form onSubmit={handleSubmit}>
         <label>
           Username
           <input name="username" type="text" />
