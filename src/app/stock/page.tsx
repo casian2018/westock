@@ -1,9 +1,36 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+import { useUser } from "../Providers/UserProvider";
+import { useEffect, useState } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
+import axios from "axios";
 
-const stock = () => {
+const Stock = () => {
+  const session = useSession();
+  const [userData, setUserData] = useState<{ stock?: any[] } | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (session.status === "authenticated") {
+        const email = session.data?.user?.email || "";
+        try {
+          const response = await axios.get(`/api/user`, {
+            params: { email },
+          });
+          setUserData(response.data);
+        } catch (error) {
+          console.error("Error fetching user data", error);
+        }
+      }
+    };
+
+    fetchData();
+  }, [session.status]);
+
   return (
-    <div className="bg-orange-100 min-h-screen">
+    <div className="min-h-screen">
       <DashboardHeader />
 
       <div className="flex flex-row pt-24 px-10 pb-4">
@@ -22,50 +49,24 @@ const stock = () => {
                 <tr>
                   <th className="text-left">Name</th>
                   <th className="text-left">Quantity</th>
-                  <th className="text-left">Price</th>
                   <th className="text-left">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Item 1</td>
-                  <td>10</td>
-                  <td>100</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Item 2</td>
-                  <td>20</td>
-                  <td>200</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Item 3</td>
-                  <td>30</td>
-                  <td>300</td>
-                  <td>
-                    <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
-                      Edit
-                    </button>
-                    <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                {userData?.stock?.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.item}</td>
+                    <td>{item.quantity}</td>
+                    <td>
+                      <button className="bg-blue-500 text-white rounded-lg px-4 py-2">
+                        Edit
+                      </button>
+                      <button className="bg-red-500 text-white rounded-lg px-4 py-2 ml-2">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -75,4 +76,4 @@ const stock = () => {
   );
 };
 
-export default stock;
+export default Stock;

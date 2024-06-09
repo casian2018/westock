@@ -2,6 +2,12 @@ export default function DashboardSidebar() {
   return (
     <div className="w-2/12 mr-6">
       <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
+      <a
+          href="/dashboard"
+          className="inline-block text-gray-600 hover:text-black my-4 w-full"
+        >
+          Dashboard
+        </a>
         <a
           href="/stock"
           className="inline-block text-gray-600 hover:text-black my-4 w-full"

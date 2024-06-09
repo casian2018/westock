@@ -10,6 +10,9 @@ interface User {
   email: string;
   username: string;
   password: string;
+  stock: any[];
+  people: any[];
+  objects: any[];
 }
 
 const UserContext = createContext({
