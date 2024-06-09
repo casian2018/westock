@@ -1,4 +1,4 @@
-export function profile() {
+export default function profile() {
   return (
     <main>
       <section className="w-full overflow-hidden dark:bg-gray-900">
