@@ -1,6 +1,16 @@
+"use server";
+
 import mongoose from "mongoose";
 
 const user = new mongoose.Schema({
+  fullName: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
@@ -11,4 +21,5 @@ const user = new mongoose.Schema({
   },
 });
 
-export const userModel = mongoose.models.users || mongoose.model("users", user);
+export const userModel =
+  mongoose.models?.users || mongoose.model("users", user);
