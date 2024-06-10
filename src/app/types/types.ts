@@ -33,6 +33,10 @@ interface User {
   stock: Stock[];
   people: People[];
   objects: Objects[];
+  busniessType: string;
+  busniessIndustry: string;
+  busniessLocation: string;
+  busniessNumber: string;
 }
 
 export type { Stock, People, Objects, User };

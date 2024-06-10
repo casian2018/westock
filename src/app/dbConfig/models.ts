@@ -35,6 +35,22 @@ const user = new mongoose.Schema({
     type: Array,
     required: true,
   },
+  busniessType: {
+    type: String,
+    required: false,
+  },
+  busniessIndustry: {
+    type: String,
+    required: false,
+  },
+  busniessLocation: {
+    type: String,
+    required: false,
+  },
+  busniessNumber: {
+    type: String,
+    required: false,
+  },
 });
 
 export const userModel =
