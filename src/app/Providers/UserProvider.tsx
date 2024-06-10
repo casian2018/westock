@@ -1,62 +1,49 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import getUserDataFct from "../api/auth/getUserData";
-
-interface Stock {
-  item: string;
-  link: string;
-  quantity: number;
-  _id: string;
-  price: number;
-}
-
-interface People {
-  _id: string;
-  name: string;
-  email: string;
-  location: string;
-  function: string;
-}
-
-interface Objects {
-  _id: string;
-  name: string;
-  location: string;
-  quantity: number;
-  status: string;
-  price: number;
-}
-
-interface User {
-  _id: string;
-  authType: string;
-  fullName: string;
-  email: string;
-  username: string;
-  password: string;
-  stock: Stock[];
-  people: People[];
-  objects: Objects[];
-}
+import { User } from "@/app/types/types";
+import { useSession } from "next-auth/react";
 
 const UserContext = createContext({
   user: {} as User | null,
-  getUserData: async (email: string) => {},
+  getUserData: async () => {},
+  loading: false,
+  setLoading: (loading: boolean) => {},
 });
 
 function UserProvider({ children }: { children: React.ReactNode }) {
   //   const [user, setUser] = useState<User | null>(null);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const getUserData = async (email: string) => {
+  const session = useSession();
+
+  const getUserDataByEmail = async (email: string) => {
     const usrs = await getUserDataFct(email);
 
     setUser(JSON.parse(usrs || "{}"));
   };
 
+  const getUserData = async () => {
+    await getUserDataByEmail(session.data?.user?.email || "");
+  };
+
+  useEffect(() => {
+    let fct = async () => {
+      if (session.status === "authenticated") {
+        setLoading(true);
+        await getUserDataByEmail(session.data?.user?.email || "");
+        setLoading(false);
+      }
+      console.log(session);
+    };
+
+    fct();
+  }, [session.status]);
+
   return (
-    <UserContext.Provider value={{ user, getUserData }}>
+    <UserContext.Provider value={{ user, getUserData, loading, setLoading }}>
       {children}
     </UserContext.Provider>
   );

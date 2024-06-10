@@ -1,49 +1,30 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 import StockModal from "../components/StockModal";
-import axios from "axios";
+import saveStockItemFct from "../api/auth/dashboardFunctions/saveStockItem";
+import { User } from "../types/types";
 
 const Stock = () => {
-  const session = useSession();
-  const { user, getUserData } = useUser();
+  const user = useUser();
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (session.status === "authenticated") {
-        const email = session.data?.user?.email || "";
-        await getUserData(email);
-        setLoading(false); // Set loading to false after data is fetched
-      }
-    };
-
-    fetchData();
-  }, [session.status]);
-
-  const handleSaveStockItem = async (stockItem: any) => {
-    if (session.status === "authenticated") {
-      const email = session.data?.user?.email || "";
-      try {
-        await axios.post('/api/user/stock', {
-          email,
-          stockItem
-        });
-        await getUserData(email); // Refresh user data
-      } catch (error) {
-        console.error('Error saving stock item', error);
-      }
-    }
+  const handleSaveStockItem = async (stockItem: {
+    item: string;
+    link: string;
+    quantity: number;
+    price: number;
+    _id: string;
+  }) => {
+    user.setLoading(true);
+    await saveStockItemFct(user.user || ({} as User), stockItem);
+    await user.getUserData();
+    user.setLoading(false);
   };
-
-  if (loading) {
-    return <div>Loading...</div>; // Show loading state until data is fetched
-  }
 
   return (
     <div className="min-h-screen">
@@ -73,7 +54,7 @@ const Stock = () => {
                 </tr>
               </thead>
               <tbody>
-                {user?.stock?.map((item, index) => (
+                {user?.user?.stock?.map((item, index) => (
                   <tr key={index}>
                     <td>{item.item}</td>
                     <td>{item.link}</td>
