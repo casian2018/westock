@@ -62,6 +62,7 @@ export default function Profile() {
                       name="businessType"
                       placeholder="e.g., Retail, Wholesale"
                       className="w-full p-2 border border-gray-300 rounded-lg"
+                      value={user.user?.businessType}
                     />
                   </div>
                   <div>
@@ -77,6 +78,7 @@ export default function Profile() {
                       name="industry"
                       placeholder="e.g., Electronics, Clothing"
                       className="w-full p-2 border border-gray-300 rounded-lg"
+                      value={user.user?.businessIndustry}
                     />
                   </div>
                   <div>
@@ -92,6 +94,7 @@ export default function Profile() {
                       name="location"
                       placeholder="e.g., New York, NY"
                       className="w-full p-2 border border-gray-300 rounded-lg"
+                      value={user.user?.businessLocation}
                     />
                   </div>
                   <div>
@@ -107,6 +110,7 @@ export default function Profile() {
                       name="contactNumber"
                       placeholder="e.g., (123) 456-7890"
                       className="w-full p-2 border border-gray-300 rounded-lg"
+                      value={user.user?.busniessNumber}
                     />
                   </div>
                 </div>

@@ -3,6 +3,7 @@
 import connectDB from "@/app/dbConfig/db";
 import { userModel } from "@/app/dbConfig/models";
 import bcrypt from "bcryptjs";
+import { Bungee_Shade } from "next/font/google";
 
 export default async function register(
   fullName: string,
@@ -26,11 +27,19 @@ export default async function register(
 
     let encPass = bcrypt.hashSync(password, 10);
 
+    let busniessLocation = ""; // Declare and initialize the busniessLocation variable
+    let busniessNumber = ""; // Declare and initialize the busniessNumber variable
+    let busniessIndustry = ""; // Declare and initialize the busniessIndustry variable
+    let busniessType = ""; // Declare and initialize the busniessType variable
     let user = new userModel({
       authType: "credentials",
       fullName,
       email,
       username,
+      busniessType,
+      busniessIndustry,
+      busniessLocation,
+      busniessNumber,
       password: encPass,
       stock: [],
       people: [],
