@@ -1,9 +1,9 @@
 [x] - index (present the web app)
 [x] - login
-[ ] - users
+[x] - users
 [x] - register
 [ ] - profile
 [ ] - dashboard
-[ ] - stock
+[x] - stock
 [ ] - objects in the busniess
 [ ] - restock (a link with the product supplier to order more faster)
