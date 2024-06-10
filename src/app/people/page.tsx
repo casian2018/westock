@@ -1,25 +1,15 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
-import { useEffect } from "react";
+import { useState } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
+import PeopleModal from "../components/PeopleModal";
 
-const peoplePage = () => {
-  const session = useSession();
+export default function PeoplePage() {
+  const [showModal, setShowModal] = useState(false);
+
   const user = useUser();
-
-  useEffect(() => {
-    let fct = async () => {
-      if (session.status === "authenticated") {
-        await user.getUserData(session.data?.user?.email || "");
-      }
-      console.log(session);
-    };
-
-    fct();
-  }, [session.status]);
 
   return (
     <div className="min-h-screen">
@@ -31,7 +21,10 @@ const peoplePage = () => {
         <div className="mt-4 w-10/12">
           <div className="flex items-center justify-between mb-4">
             <div className="font-bold text-lg">People List</div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => setShowModal(true)}
+            >
               Add Person
             </button>
           </div>
@@ -65,9 +58,16 @@ const peoplePage = () => {
           </table>
         </div>
       </div>
+
+      {showModal && (
+        <PeopleModal
+          onSave={handleSavePeople()}
+          onClose={() => setShowModal(false)}
+        ></PeopleModal>
+      )}
     </div>
   );
-};
+}
 
 function TableRow({
   name,

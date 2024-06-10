@@ -8,7 +8,7 @@ import StockModal from "../components/StockModal";
 import saveStockItemFct from "../api/auth/dashboardFunctions/saveStockItem";
 import { User } from "../types/types";
 
-const Stock = () => {
+export default function Stock() {
   const user = useUser();
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -38,13 +38,13 @@ const Stock = () => {
             <div className="flex justify-between items-center">
               <h1 className="text-xl font-bold">Stock</h1>
               <button
-                className="bg-blue-500 text-white rounded-lg px-4 py-2"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={() => setShowModal(true)}
               >
                 Add Stock
               </button>
             </div>
-            <table className="w-full mt-4">
+            {/* <table className="w-full mt-4">
               <thead>
                 <tr>
                   <th className="text-left">Name</th>
@@ -63,6 +63,34 @@ const Stock = () => {
                   </tr>
                 ))}
               </tbody>
+            </table> */}
+            <table className="w-full table-fixed">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Name
+                  </th>
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Link
+                  </th>
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Quantity
+                  </th>
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Price
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                {user.user?.stock.map((stock) => (
+                  <TableRow
+                    name={stock.item}
+                    link={stock.link}
+                    quantity={stock.quantity}
+                    price={stock.price}
+                  ></TableRow>
+                ))}
+              </tbody>
             </table>
           </div>
         </div>
@@ -76,6 +104,25 @@ const Stock = () => {
       )}
     </div>
   );
-};
+}
 
-export default Stock;
+function TableRow({
+  name,
+  link,
+  quantity,
+  price,
+}: {
+  name: string;
+  link: string;
+  quantity: number;
+  price: number;
+}) {
+  return (
+    <tr>
+      <td className="py-4 px-6 border-b border-gray-200">{name}</td>
+      <td className="py-4 px-6 border-b border-gray-200 truncate">{link}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{price}</td>
+    </tr>
+  );
+}
