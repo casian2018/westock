@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ObjectsModal } from "../components/ObjectsModal";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
@@ -13,15 +13,17 @@ export default function ObjectsPage() {
   const user = useUser();
   const [showModal, setShowModal] = useState(false);
 
-  const handleSaveObjectsItem = async (stockItem: {
+  const handleSaveObjectsItem = async (objectsItem: {
     item: string;
     link: string;
+    location: string;
     quantity: number;
     price: number;
+    status: string;
     _id: string;
   }) => {
     user.setLoading(true);
-    await saveObjectsItemFct(user.user || ({} as User), stockItem);
+    await saveObjectsItemFct(user.user || ({} as User), objectsItem);
     await user.getUserData();
     user.setLoading(false);
   };
@@ -79,15 +81,19 @@ export default function ObjectsPage() {
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                     Price
                   </th>
+                    <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                        Status
+                    </th>
                 </tr>
               </thead>
               <tbody className="bg-white">
-                {user?.user?.stock?.map((item, index) => (
+                {user?.user?.objects?.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.item}</td>
-                    <td>{item.link}</td>
+                    <td>{item.name}</td>
                     <td>{item.quantity}</td>
+                    <td>{item.location}</td>
                     <td>{item.price}</td>
+                    <td>{item.status}</td>
                   </tr>
                 ))}
               </tbody>
@@ -115,6 +121,7 @@ function TableRow({
   link: string;
   quantity: number;
   price: number;
+  status: string;
 }) {
   return (
     <tr>
@@ -122,18 +129,20 @@ function TableRow({
       <td className="py-4 px-6 border-b border-gray-200 truncate">{link}</td>
       <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
       <td className="py-4 px-6 border-b border-gray-200">{price}</td>
+        <td className="py-4 px-6 border-b border-gray-200">{status}</td>
     </tr>
   );
 }
 function saveObjectsItemFct(
-  arg0: import("../types/types").User | User,
-  ObjectsItem: {
+  _arg0: import("../types/types").User | User,
+  _ObjectsItem: {
     item: string;
     link: string;
     quantity: number;
     price: number;
+    status: string;
     _id: string;
   }
 ) {
-  throw new Error("Function not implemented.");
+  throw new Error("An error occurred while saving the objects item.");
 }
