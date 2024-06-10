@@ -9,14 +9,7 @@ import { User } from "next-auth";
 import { Stock } from "../types/types";
 
 export default function dashboard() {
-<<<<<<< Updated upstream
-  const session = useSession();
-  const user = useUser() as {
-   user: User | null; getUserData: () => Promise<void>; loading: boolean; setLoading: (loading: boolean) => void; stock: Stock | null 
-};
-=======
   const user = useUser();
->>>>>>> Stashed changes
 
   return (
     <div className="min-h-screen">
