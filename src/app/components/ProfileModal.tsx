@@ -2,20 +2,28 @@ import React, { useState } from "react";
 
 interface EditAccountProps {
   onClose: () => void;
-  onSave: (accountInfo: { name: string; email: string }) => void;
+  onSave: (usr: any) => void;
 }
 
 const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [busniessType, setBusniessType] = useState("");
-    const [busniessIndustry, setBusniessIndustry] = useState("");
-    const [busniessLocation, setBusniessLocation] = useState("");
-    const [busniessNumber, setBusniessNumber] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [busniessType, setBusniessType] = useState("");
+  const [busniessIndustry, setBusniessIndustry] = useState("");
+  const [busniessLocation, setBusniessLocation] = useState("");
+  const [busniessNumber, setBusniessNumber] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSave({ name, email, busniessType, busniessIndustry, busniessLocation, busniessNumber});
+    onSave({
+      _id: Date.now().toString(36) + Math.random().toString(36).substr(2),
+      name,
+      email,
+      busniessType,
+      busniessIndustry,
+      busniessLocation,
+      busniessNumber,
+    });
     onClose();
   };
 
@@ -52,50 +60,50 @@ const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
               required
             />
           </div>
-            <div className="mb-8">
-                <label className="block text-gray-700">Business Type</label>
-                <input
-                type="text"
-                className="w-full border border-gray-300 rounded px-3 py-2"
-                value={busniessType}
-                placeholder="e.g., Retail, Wholesale"
-                onChange={(e) => setBusniessType(e.target.value)}
-                required
-                />
-            </div>
-            <div className="mb-8">
-                <label className="block text-gray-700">Industry</label>
-                <input
-                type="text"
-                className="w-full border border-gray-300 rounded px-3 py-2"
-                value={busniessIndustry}
-                placeholder="e.g., Food, Clothing"
-                onChange={(e) => setBusniessIndustry(e.target.value)}
-                required
-                />
-            </div>
-            <div className="mb-8">
-                <label className="block text-gray-700">Location</label>
-                <input
-                type="text"
-                className="w-full border border-gray-300 rounded px-3 py-2"
-                value={busniessLocation}
-                placeholder="e.g., Lagos, Nigeria"
-                onChange={(e) => setBusniessLocation(e.target.value)}
-                required
-                />
-            </div>
-            <div className="mb-8">
-                <label className="block text-gray-700">Phone Number</label>
-                <input
-                type="text"
-                className="w-full border border-gray-300 rounded px-3 py-2"
-                value={busniessNumber}
-                placeholder="e.g., 08012345678"
-                onChange={(e) => setBusniessNumber(e.target.value)}
-                required
-                />
-            </div>
+          <div className="mb-8">
+            <label className="block text-gray-700">Business Type</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={busniessType}
+              placeholder="e.g., Retail, Wholesale"
+              onChange={(e) => setBusniessType(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-8">
+            <label className="block text-gray-700">Industry</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={busniessIndustry}
+              placeholder="e.g., Food, Clothing"
+              onChange={(e) => setBusniessIndustry(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-8">
+            <label className="block text-gray-700">Location</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={busniessLocation}
+              placeholder="e.g., Lagos, Nigeria"
+              onChange={(e) => setBusniessLocation(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-8">
+            <label className="block text-gray-700">Phone Number</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={busniessNumber}
+              placeholder="e.g., 08012345678"
+              onChange={(e) => setBusniessNumber(e.target.value)}
+              required
+            />
+          </div>
           <div className="flex justify-end">
             <button
               type="button"
