@@ -8,11 +8,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex shrink-0">
               <a aria-current="page" className="flex items-center" href="/">
-                <img
-                  className="h-7 w-auto"
-                  src={logo.src}
-                  alt=""
-                />
+                <img className="h-7 w-auto" src={logo.src} alt="" />
                 <p className="sr-only">WeStock</p>
               </a>
             </div>
@@ -220,35 +216,19 @@ export default function Home() {
               title="Company"
               className="inline-flex items-center"
             >
-              <svg
-                className="w-8 text-deep-purple-accent-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-              >
-                <rect x="3" y="1" width="7" height="12"></rect>
-                <rect x="3" y="17" width="7" height="6"></rect>
-                <rect x="14" y="1" width="7" height="6"></rect>
-                <rect x="14" y="11" width="7" height="12"></rect>
-              </svg>
+              <img src={logo.src} alt="logo of westock" className="w-12 h-12"/>
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                Company
+                WeStock
               </span>
             </a>
             <div className="mt-6 lg:max-w-sm">
-              <p className="text-sm text-gray-800">
-              Welcome to WeStock, your ultimate solution for seamless stock management. At WeStock, we are committed to revolutionizing the way businesses handle inventory. Our intuitive web application simplifies the complex process of tracking, organizing, and optimizing stock, making it accessible for companies of all sizes.
-
-Our team of dedicated professionals combines expertise in technology and supply chain management to deliver a user-friendly platform that enhances efficiency and accuracy. We understand the challenges of inventory management, which is why we focus on providing real-time updates, detailed analytics, and smart forecasting tools to keep your operations running smoothly.
-              </p>
               <p className="mt-4 text-sm text-gray-800">
-              With WeStock, you can say goodbye to the hassles of manual stock tracking and hello to streamlined operations and increased productivity. Join us on the journey to smarter inventory management and experience the ease and reliability that WeStock brings to your business.
-
-Together, let's make stock management simple, effective, and stress-free. Welcome to WeStock!
+                With WeStock, you can say goodbye to the hassles of manual stock
+                tracking and hello to streamlined operations and increased
+                productivity. Join us on the journey to smarter inventory
+                management and experience the ease and reliability that WeStock
+                brings to your business. Together, let's make stock management
+                simple, effective, and stress-free. Welcome to WeStock!
               </p>
             </div>
           </div>
@@ -264,18 +244,18 @@ Together, let's make stock management simple, effective, and stress-free. Welcom
                 title="Our phone"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                0729 459 468 
+                0729 459 468
               </a>
             </div>
             <div className="flex">
               <p className="mr-1 text-gray-800">Email:</p>
               <a
-                href="mailto:info@lorem.mail"
+                href="mailto:westock@ctp.one"
                 aria-label="Our email"
                 title="Our email"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                idev@ctp.one
+                westock@ctp.one
               </a>
             </div>
             <div className="flex">
@@ -288,7 +268,7 @@ Together, let's make stock management simple, effective, and stress-free. Welcom
                 title="Our address"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                312 Lovely Street, NY
+                Romania
               </a>
             </div>
           </div>
@@ -323,15 +303,11 @@ Together, let's make stock management simple, effective, and stress-free. Welcom
                 </svg>
               </a>
             </div>
-            <p className="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-              spare ribs salami.
-            </p>
           </div>
         </div>
         <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
           <p className="text-sm text-gray-600">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+            © Copyright 2024 | All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
@@ -352,7 +328,7 @@ Together, let's make stock management simple, effective, and stress-free. Welcom
             </li>
             <li>
               <a
-                href="/"
+                href="/terms"
                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 Terms &amp; Conditions

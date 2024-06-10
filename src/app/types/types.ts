@@ -16,7 +16,7 @@ interface People {
 
 interface Objects {
   _id: string;
-  name: string;
+  item: string;
   location: string;
   quantity: number;
   status: string;

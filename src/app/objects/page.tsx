@@ -73,13 +73,13 @@ export default function ObjectsPage() {
                     Name
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                    Link
+                  Quantity 
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                    Quantity
+                     Price
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                    Price
+                    Location
                   </th>
                     <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                         Status
@@ -89,11 +89,11 @@ export default function ObjectsPage() {
               <tbody className="bg-white">
                 {user?.user?.objects?.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.name}</td>
-                    <td>{item.quantity}</td>
-                    <td>{item.location}</td>
-                    <td>{item.price}</td>
-                    <td>{item.status}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">{item.item}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">{item.quantity}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">{item.price}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">{item.location}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">{item.status}</td>
                   </tr>
                 ))}
               </tbody>
@@ -111,28 +111,8 @@ export default function ObjectsPage() {
   );
 }
 
-function TableRow({
-  name,
-  link,
-  quantity,
-  price,
-}: {
-  name: string;
-  link: string;
-  quantity: number;
-  price: number;
-  status: string;
-}) {
-  return (
-    <tr>
-      <td className="py-4 px-6 border-b border-gray-200">{name}</td>
-      <td className="py-4 px-6 border-b border-gray-200 truncate">{link}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{price}</td>
-        <td className="py-4 px-6 border-b border-gray-200">{status}</td>
-    </tr>
-  );
-}
+
+
 function saveObjectsItemFct(
   _arg0: import("../types/types").User | User,
   _ObjectsItem: {

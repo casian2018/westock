@@ -99,7 +99,7 @@ You have the right to:
 - Request deletion of your personal information<br />
 - Opt-out of receiving marketing communications<br />
 <br />
-To exercise these rights, please contact us at privacy@westock.com.<br />
+To exercise these rights, please contact us at westock@ctp.one<br />
 <br />
 6. Cookies and Tracking Technologies<br /><br />
 We use cookies and similar tracking technologies to enhance your experience on our web application. You can control the use of cookies through your browser settings.
@@ -111,8 +111,8 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 If you have any questions about this Privacy Policy, please contact us at:<br />
 
 WeStock  <br />
-Email: privacy@westock.com  <br />
-Address: 123 Inventory Lane, Business City, BC 12345<br />
+Email: westock@ctp.one <br />
+Address: Romania<br />
 <br />
 Thank you for trusting WeStock with your stock management needs.
         </div>

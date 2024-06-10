@@ -10,7 +10,6 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
   onSave,
 }) => {
   const [item, setItem] = useState("");
-  const [link, setLink] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const [location, setLocation] = useState("");
@@ -20,9 +19,9 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
     e.preventDefault();
     onSave({
       item,
-      link,
       quantity: Number(quantity),
       price: Number(price),
+      location: location,
       status: "Available",
       _id: Date.now().toString(36) + Math.random().toString(36).substr(2),
     });
@@ -39,12 +38,12 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50">
-      <div className="bg-white py-8 rounded-lg shadow-lg w-1/3 flex items-center justify-center flex-col">
-        <h2 className="text-3xl font-bold mb-4">Add Object</h2>
-        <form onSubmit={handleSubmit} className=" w-3/4">
-          <div className="mb-8">
-            <label className="block text-gray-700">Item</label>
+    <div className="absolute inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50">
+      <div className="bg-white py-8 px-6 rounded-lg shadow-lg w-1/2 flex items-center justify-center flex-col">
+        <h2 className="text-3xl font-bold mb-6">Add Object</h2>
+        <form onSubmit={handleSubmit} className="w-3/4">
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2">Item</label>
             <input
               type="text"
               className="w-full border border-gray-300 rounded px-3 py-2"
@@ -54,29 +53,18 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
               required
             />
           </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Link</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={link}
-              placeholder="https://example.com/item1"
-              onChange={(e) => setLink(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Quantity</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2">Quantity</label>
             <input
               type="number"
-              className="w-full border border-gray-300 rounded px-3 py-2 mb-2"
+              className="w-full border border-gray-300 rounded px-3 py-2"
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
               required
             />
           </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Price</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2">Price</label>
             <input
               type="number"
               className="w-full border border-gray-300 rounded px-3 py-2"
@@ -85,8 +73,8 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
               required
             />
           </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Location</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2">Location</label>
             <input
               type="text"
               className="w-full border border-gray-300 rounded px-3 py-2"
@@ -95,19 +83,19 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
               required
             />
           </div>
-            <div className="mb-8">
-                <label className="block text-gray-700">Status</label>
-                <select
-                className="w-full border border-gray-300 rounded px-3 py-2"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                required
-                >
-                    <option value="Available">Available</option>
-                    <option value="Sold">Sold</option>
-                    <option value="Unavailable">Unavailable</option>
-                </select>
-            </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2">Status</label>
+            <select
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              required
+            >
+              <option value="Available">Available</option>
+              <option value="Sold">Sold</option>
+              <option value="Unavailable">Unavailable</option>
+            </select>
+          </div>
           <div className="flex justify-between">
             <button
               type="button"

@@ -4,14 +4,12 @@ import connectDB from "@/app/dbConfig/db";
 import { userModel } from "@/app/dbConfig/models";
 import { User } from "@/app/types/types";
 
-import { Objects } from "@/app/types/types"; // Import the 'Objects' type from the appropriate location
-
 export default async function saveObjectsItemFct(
   user: User,
   objectsItem: 
   {
     _id: string;
-    name: string;
+    item: string;
     location: string;
     quantity: number;
     status: string;
