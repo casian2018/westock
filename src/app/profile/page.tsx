@@ -9,7 +9,7 @@ import { User } from "next-auth";
 
 export default function Profile() {
   const session = useSession();
-  const user = useUser() as { user: User | null; getUserData: () => Promise<void>; loading: boolean; setLoading: (loading: boolean) => void; fullName: string; };
+  const user = useUser();
 
   useEffect(() => {
     let fct = async () => {
@@ -40,25 +40,23 @@ export default function Profile() {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Profile Information
             </h2>
-            {user?.user && (
-              <div className="flex items-center gap-6 p-6 bg-white shadow-lg rounded-lg">
-                <div className="flex-shrink-0">
-                  <img
-                    src="$IMAGE_URL$"
-                    alt="Account Image"
-                    className="w-24 h-24 rounded-full border-2 border-gray-200"
-                  />
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
-                  <p className="text-gray-900">{user.fullName}</p>
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-lg font-medium text-gray-700">
-                    Business Name
-                  </h3>
-                  <p className="text-gray-900">{user.user.toString()}</p>
-                </div>
+            <div className="flex items-center gap-6 p-6 bg-white shadow-lg rounded-lg">
+              <div className="flex-shrink-0">
+                <img
+                  src="$IMAGE_URL$"
+                  alt="Account Image"
+                  className="w-24 h-24 rounded-full border-2 border-gray-200"
+                />
+              </div>
+              <div className="flex-grow">
+                <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
+                <p className="text-gray-900">{user.fullName}</p>
+              </div>
+              <div className="flex-grow">
+                <h3 className="text-lg font-medium text-gray-700">
+                  Business Name
+                </h3>
+                <p className="text-gray-900">$BUSINESS_NAME$</p>
               </div>
             )}
 
@@ -133,5 +131,5 @@ export default function Profile() {
         </div>
       </div>
     </main>
-  )
-};
+  );
+}

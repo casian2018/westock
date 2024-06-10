@@ -9,21 +9,14 @@ import { User } from "next-auth";
 import { Stock } from "../types/types";
 
 export default function dashboard() {
+<<<<<<< Updated upstream
   const session = useSession();
   const user = useUser() as {
    user: User | null; getUserData: () => Promise<void>; loading: boolean; setLoading: (loading: boolean) => void; stock: Stock | null 
 };
-
-  useEffect(() => {
-    let fct = async () => {
-      if (session.status === "authenticated") {
-        await user.getUserData(session.data?.user?.email || "");
-      }
-      console.log(session);
-    };
-
-    fct();
-  }, [session.status]);
+=======
+  const user = useUser();
+>>>>>>> Stashed changes
 
   return (
     <div className="min-h-screen">
@@ -47,7 +40,7 @@ export default function dashboard() {
             <div className="bg-no-repeat bg-orange-200 border border-orange-300 rounded-xl w-5/12 ml-2 p-6">
               <p className="text-5xl text-indigo-900">
                 People <br />
-                <strong>23</strong>
+                <strong>{user.user?.people.length}</strong>
               </p>
               <a
                 href="/people"
