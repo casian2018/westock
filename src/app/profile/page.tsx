@@ -1,26 +1,11 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
-import { useEffect } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
-import { User } from "next-auth";
 
 export default function Profile() {
-  const session = useSession();
   const user = useUser();
-
-  useEffect(() => {
-    let fct = async () => {
-      if (session.status === "authenticated") {
-        await user.getUserData(session.data?.user?.email || "");
-      }
-      console.log(session);
-    };
-
-    fct();
-  }, [session.status]);
 
   return (
     <main>
@@ -50,80 +35,80 @@ export default function Profile() {
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
-                <p className="text-gray-900">{user.fullName}</p>
+                <p className="text-gray-900">{user.user?.fullName}</p>
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">
                   Business Name
                 </h3>
-                <p className="text-gray-900">$BUSINESS_NAME$</p>
+                <p className="text-gray-900">{user.user?.username}</p>
               </div>
-            )}
 
-            <div className="mt-6 p-6 bg-white shadow-lg rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Business Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    className="block text-gray-700 font-medium mb-2"
-                    htmlFor="businessType"
-                  >
-                    Business Type
-                  </label>
-                  <input
-                    type="text"
-                    id="businessType"
-                    name="businessType"
-                    placeholder="e.g., Retail, Wholesale"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-gray-700 font-medium mb-2"
-                    htmlFor="industry"
-                  >
-                    Industry
-                  </label>
-                  <input
-                    type="text"
-                    id="industry"
-                    name="industry"
-                    placeholder="e.g., Electronics, Clothing"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-gray-700 font-medium mb-2"
-                    htmlFor="location"
-                  >
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    placeholder="e.g., New York, NY"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-gray-700 font-medium mb-2"
-                    htmlFor="contactNumber"
-                  >
-                    Contact Number
-                  </label>
-                  <input
-                    type="text"
-                    id="contactNumber"
-                    name="contactNumber"
-                    placeholder="e.g., (123) 456-7890"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                  />
+              <div className="mt-6 p-6 bg-white shadow-lg rounded-lg">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  Business Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="businessType"
+                    >
+                      Business Type
+                    </label>
+                    <input
+                      type="text"
+                      id="businessType"
+                      name="businessType"
+                      placeholder="e.g., Retail, Wholesale"
+                      className="w-full p-2 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="industry"
+                    >
+                      Industry
+                    </label>
+                    <input
+                      type="text"
+                      id="industry"
+                      name="industry"
+                      placeholder="e.g., Electronics, Clothing"
+                      className="w-full p-2 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="location"
+                    >
+                      Location
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      placeholder="e.g., New York, NY"
+                      className="w-full p-2 border border-gray-300 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="block text-gray-700 font-medium mb-2"
+                      htmlFor="contactNumber"
+                    >
+                      Contact Number
+                    </label>
+                    <input
+                      type="text"
+                      id="contactNumber"
+                      name="contactNumber"
+                      placeholder="e.g., (123) 456-7890"
+                      className="w-full p-2 border border-gray-300 rounded-lg"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
