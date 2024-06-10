@@ -1,4 +1,4 @@
-import Image from "next/image";
+import logo from "@/assets/WeStock_1.svg";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
               <a aria-current="page" className="flex items-center" href="/">
                 <img
                   className="h-7 w-auto"
-                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  src={logo.src}
                   alt=""
                 />
                 <p className="sr-only">WeStock</p>
@@ -241,12 +241,14 @@ export default function Home() {
             </a>
             <div className="mt-6 lg:max-w-sm">
               <p className="text-sm text-gray-800">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
+              Welcome to WeStock, your ultimate solution for seamless stock management. At WeStock, we are committed to revolutionizing the way businesses handle inventory. Our intuitive web application simplifies the complex process of tracking, organizing, and optimizing stock, making it accessible for companies of all sizes.
+
+Our team of dedicated professionals combines expertise in technology and supply chain management to deliver a user-friendly platform that enhances efficiency and accuracy. We understand the challenges of inventory management, which is why we focus on providing real-time updates, detailed analytics, and smart forecasting tools to keep your operations running smoothly.
               </p>
               <p className="mt-4 text-sm text-gray-800">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
+              With WeStock, you can say goodbye to the hassles of manual stock tracking and hello to streamlined operations and increased productivity. Join us on the journey to smarter inventory management and experience the ease and reliability that WeStock brings to your business.
+
+Together, let's make stock management simple, effective, and stress-free. Welcome to WeStock!
               </p>
             </div>
           </div>
@@ -262,7 +264,7 @@ export default function Home() {
                 title="Our phone"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                850-123-5021
+                0729 459 468 
               </a>
             </div>
             <div className="flex">
@@ -273,7 +275,7 @@ export default function Home() {
                 title="Our email"
                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
-                info@lorem.mail
+                idev@ctp.one
               </a>
             </div>
             <div className="flex">
@@ -342,7 +344,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="/"
+                href="/privacy"
                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 Privacy Policy

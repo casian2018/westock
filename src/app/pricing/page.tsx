@@ -1,5 +1,6 @@
 // pages/pricing.js
 import React from "react";
+import logo from "@/assets/WeStock_1.svg";
 
 const Pricing = () => {
   return (
@@ -11,7 +12,7 @@ const Pricing = () => {
               <a aria-current="page" className="flex items-center" href="/">
                 <img
                   className="h-7 w-auto"
-                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  src="logo.src"
                   alt=""
                 />
                 <p className="sr-only">WeStock</p>
@@ -59,6 +60,7 @@ const Pricing = () => {
               The Team subscription grants your entire As a subscriber to our
               website, you'll have access to a wide range of exclusive benefits
               and perks.
+              WeStock is a comprehensive web app designed to streamline stock management for retail shops. It offers real-time inventory tracking, automated stock alerts, and detailed reporting, enabling efficient oversight and preventing stockouts or overstocking. With an intuitive interface and seamless integration with point-of-sale systems, WeStock simplifies inventory tasks, enhances accuracy, and boosts productivity. Ideal for small to medium-sized businesses, WeStock ensures optimal stock levels, helping shops run smoothly and profitably.
             </p>
             <div className="mt-8">
               <div className="flex items-center">
@@ -83,7 +85,7 @@ const Pricing = () => {
                     </svg>
                   </div>
                   <p className="ml-3 text-lg leading-5 text-gray-700 font-ttnorms text-left ">
-                    Access to premium content and exclusive articles
+                    Access to notifications for low stock levels
                   </p>
                 </li>
                 <li className="flex items-start lg:col-span-1">
@@ -101,7 +103,7 @@ const Pricing = () => {
                     </svg>
                   </div>
                   <p className="ml-3 text-lg leading-5 text-gray-700 font-ttnorms text-left ">
-                    Free Shipping on select products
+                    Express Shipping on your products
                   </p>
                 </li>
                 <li className="flex items-start lg:col-span-1">
@@ -119,7 +121,7 @@ const Pricing = () => {
                     </svg>
                   </div>
                   <p className="ml-3 text-lg leading-5 text-gray-700 font-ttnorms text-left ">
-                    Early access to upcoming events and promotions
+                    Early access to upcoming features
                   </p>
                 </li>
                 <li className="flex items-start lg:col-span-1">
@@ -148,7 +150,7 @@ const Pricing = () => {
               A single payment for your entire team
             </p>
             <div className="my-10 lg:my-6 flex items-baseline justify-center text-5xl leading-none font-extrabold text-gray-900 ">
-              <span className="font-brown">$19</span>
+              <span className="font-brown">$19.99</span>
               <span className="text-xl leading-7 font-medium text-gray-500 font-ttnorms">
                 /month
               </span>
@@ -159,7 +161,7 @@ const Pricing = () => {
                   href="#"
                   className="flex items-center justify-center px-5 py-3 leading-6 font-medium rounded-md focus:outline-none focus:ring transition duration-200 ease-in-out shadow-teal border-2 border-teal-400 bg-white hover:bg-teal-400 hover:shadow-teal-hover text-teal-400 hover:text-white text-lg relative z-20 dark:bg-teal-400 dark:text-white dark:hover:bg-teal-500 dark:hover:text-white"
                 >
-                  Start your 7-day trial
+                  Start your 7-day free trial
                 </a>
               </div>
             </div>
