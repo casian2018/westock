@@ -7,7 +7,7 @@ export default async function getUserDataFct(email: string) {
   connectDB();
 
   try {
-    let users = await userModel.findOne({ email: email });
+    let users = await userModel.findOne({ email: email, id: 0});
     users._id = users._id.toString();
 
     return JSON.stringify(users);

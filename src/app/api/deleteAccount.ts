@@ -4,9 +4,18 @@ import { getSession } from 'next-auth/react';
 import connectDB from '@/app/dbConfig/db';
 import { userModel } from '@/app/dbConfig/models';
 
+type UserModel = typeof userModel;
+
 type Data = {
   message: string;
 };
+
+interface SessionUser {
+  id?: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  image?: string | null | undefined;
+}
 
 const deleteAccountHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method !== 'DELETE') {
@@ -19,7 +28,8 @@ const deleteAccountHandler = async (req: NextApiRequest, res: NextApiResponse<Da
     return res.status(401).json({ message: 'Unauthorized' });
   }
 
-  const userId = session.user.id; // Adjust this based on how you store user ID in session
+  // Ensure you have the correct user ID
+  const userId = (session?.user?.id || '') as string; // Adjust this based on how you store user ID in session
 
   try {
     await connectDB(); // Ensure the database is connected

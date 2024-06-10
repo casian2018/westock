@@ -1,15 +1,14 @@
 "use client";
 
 import { signOut } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DeleteAccount() {
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [isDeleted, setIsDeleted] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState<boolean>(false);
+  const [isDeleted, setIsDeleted] = useState<boolean>(false);
 
   const handleDeleteAccount = async () => {
     try {
-      // Call your backend API to delete the account
       const response = await fetch('/api/deleteAccount', {
         method: 'DELETE',
         headers: {
@@ -29,6 +28,12 @@ export default function DeleteAccount() {
     }
   };
 
+  useEffect(() => {
+    if (isConfirmed) {
+      handleDeleteAccount();
+    }
+  }, [isConfirmed]);
+
   if (isDeleted) {
     return <h1>Account deleted. Redirecting...</h1>;
   }
@@ -43,10 +48,5 @@ export default function DeleteAccount() {
     );
   }
 
-  return (
-    <div>
-      <h1>Deleting your account...</h1>
-      {handleDeleteAccount()}
-    </div>
-  );
+  return <h1>Deleting your account...</h1>;
 }

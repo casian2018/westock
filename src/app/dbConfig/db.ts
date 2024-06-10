@@ -4,6 +4,10 @@ import mongoose from "mongoose";
 
 export default async function connectDB() {
   const url = process.env.DB_HOST || "";
+  if (!url) {
+    console.error("Error: Database URL not found");
+    process.exit(1);
+  }
 
   try {
     await mongoose.connect(url);
@@ -13,13 +17,11 @@ export default async function connectDB() {
   }
 
   const dbConnection = mongoose.connection;
-  dbConnection.once("open", (_) => {
+  dbConnection.once("open", () => {
     console.log("Database connected to: ", url);
   });
 
   dbConnection.on("error", (error) => {
     console.error("Error: ", error);
   });
-
-  return;
 }
