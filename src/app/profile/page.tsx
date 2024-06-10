@@ -43,8 +43,8 @@ export default function Profile() {
                 </h3>
                 <p className="text-gray-900">{user.user?.username}</p>
               </div>
-
-              <div className="mt-6 p-6 bg-white shadow-lg rounded-lg">
+            </div>
+            <div className="mt-6 p-6 bg-white shadow-lg rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">
                   Business Information
                 </h3>
@@ -111,7 +111,6 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
