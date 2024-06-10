@@ -3,9 +3,16 @@
 import { useUser } from "../Providers/UserProvider";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
+import ProfileModal from "../components/ProfileModal";
 
 export default function Profile() {
   const user = useUser();
+
+
+
+  function showModal(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <main>
@@ -17,9 +24,14 @@ export default function Profile() {
         <div className="w-10/12">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold text-gray-800">Profile</h1>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={showModal}>
               Edit Profile
             </button>
+            <ProfileModal onClose={function (): void {
+              throw new Error("Function not implemented.");
+            } } onSave={function (accountInfo: { name: string; email: string; }): void {
+              throw new Error("Function not implemented.");
+            } } />
           </div>
           <div className="mt-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -121,3 +133,4 @@ export default function Profile() {
     </main>
   );
 }
+
