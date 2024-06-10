@@ -5,11 +5,26 @@ import { useState } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 import PeopleModal from "../components/PeopleModal";
+import savePeople from "../api/auth/dashboardFunctions/savePeople";
+import { User } from "../types/types";
 
 export default function PeoplePage() {
   const [showModal, setShowModal] = useState(false);
 
   const user = useUser();
+
+  const handleSavePeople = async (person: {
+    name: string;
+    email: string;
+    location: string;
+    function: string;
+    _id: string;
+  }) => {
+    user.setLoading(true);
+    await savePeople(user.user || ({} as User), person);
+    await user.getUserData();
+    user.setLoading(false);
+  };
 
   return (
     <div className="min-h-screen">
@@ -39,7 +54,10 @@ export default function PeoplePage() {
                   Email
                 </th>
                 <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                  Phone
+                  Location
+                </th>
+                <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                  Function
                 </th>
                 <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                   Status
@@ -52,6 +70,7 @@ export default function PeoplePage() {
                   name={pers.name}
                   email={pers.email}
                   location={pers.location}
+                  fct={pers.function}
                 ></TableRow>
               ))}
             </tbody>
@@ -61,7 +80,7 @@ export default function PeoplePage() {
 
       {showModal && (
         <PeopleModal
-          onSave={handleSavePeople()}
+          onSave={handleSavePeople}
           onClose={() => setShowModal(false)}
         ></PeopleModal>
       )}
@@ -73,16 +92,19 @@ function TableRow({
   name,
   email,
   location,
+  fct,
 }: {
   name: string;
   email: string;
   location: string;
+  fct: string;
 }) {
   return (
     <tr>
       <td className="py-4 px-6 border-b border-gray-200">{name}</td>
       <td className="py-4 px-6 border-b border-gray-200 truncate">{email}</td>
       <td className="py-4 px-6 border-b border-gray-200">{location}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{fct}</td>
       <td className="py-4 px-6 border-b border-gray-200">
         <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
           Inactive

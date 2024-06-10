@@ -17,7 +17,7 @@ const PeopleModal: React.FC<StockModalProps> = ({ onClose, onSave }) => {
       name,
       email,
       location,
-      fct,
+      function: fct,
       _id: Date.now().toString(36) + Math.random().toString(36).substr(2),
     });
     onClose();
@@ -49,7 +49,7 @@ const PeopleModal: React.FC<StockModalProps> = ({ onClose, onSave }) => {
           <div className="mb-4">
             <label className="block text-gray-700">Eamil</label>
             <input
-              type="text"
+              type="email"
               className="w-full border border-gray-300 rounded px-3 py-2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +59,7 @@ const PeopleModal: React.FC<StockModalProps> = ({ onClose, onSave }) => {
           <div className="mb-4">
             <label className="block text-gray-700">Location</label>
             <input
-              type="number"
+              type="text"
               className="w-full border border-gray-300 rounded px-3 py-2"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -69,7 +69,7 @@ const PeopleModal: React.FC<StockModalProps> = ({ onClose, onSave }) => {
           <div className="mb-4">
             <label className="block text-gray-700">Function</label>
             <input
-              type="number"
+              type="text"
               className="w-full border border-gray-300 rounded px-3 py-2"
               value={fct}
               onChange={(e) => setFct(e.target.value)}
