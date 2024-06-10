@@ -129,3 +129,5 @@ function StockItem({ name, qty }: { name: string; qty: number }) {
     </div>
   );
 }
+
+function PeopleItem() {}
