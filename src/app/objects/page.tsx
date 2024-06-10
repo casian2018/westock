@@ -8,7 +8,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 import { User } from "next-auth";
 
-const objectsPage = () => {
+export default function ObjectsPage() {
   const session = useSession();
   const user = useUser();
   const [showModal, setShowModal] = useState(false);
@@ -25,19 +25,6 @@ const objectsPage = () => {
     await user.getUserData();
     user.setLoading(false);
   };
-
-  useEffect(() => {
-    let fct = async () => {
-      if (session.status === "authenticated") {
-        await user.getUserData(session.data?.user?.email || "");
-      }
-      console.log(session);
-    };
-
-    fct();
-  }, [session.status]);
-
-  // Remove the duplicate function declaration
 
   return (
     <div className="min-h-screen">
@@ -116,7 +103,7 @@ const objectsPage = () => {
       </div>
     </div>
   );
-};
+}
 
 function TableRow({
   name,
