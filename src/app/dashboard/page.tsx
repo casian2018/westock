@@ -1,12 +1,8 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
-import { useEffect } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
-import { User } from "next-auth";
-import { Stock } from "../types/types";
 
 export default function dashboard() {
   const user = useUser();
@@ -47,21 +43,16 @@ export default function dashboard() {
             <ul className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
               <h1 className="font-bold text-[22px]">Manage Stocks</h1>
               <li>
-                <div className="px-4 py-5 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      {user.user?.stock?.item}
-                    </h3>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      {user.user?.stock?.quantity}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-500">
-                      Status: <span className="text-green-600">Active</span>
-                    </p>
-                  </div>
-                </div>
+                {user.user?.stock.map(
+                  (item, index) =>
+                    index < 3 && (
+                      <StockItem
+                        key={index}
+                        name={item.item}
+                        qty={item.quantity}
+                      />
+                    )
+                )}
               </li>
             </ul>
             <ul className="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
@@ -118,6 +109,22 @@ export default function dashboard() {
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function StockItem({ name, qty }: { name: string; qty: number }) {
+  return (
+    <div className="px-4 py-5 sm:px-6">
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg leading-6 font-medium text-gray-900">{name}</h3>
+        <p className="mt-1 max-w-2xl text-sm text-gray-500">{qty}</p>
+      </div>
+      <div className="mt-4 flex items-center justify-between">
+        <p className="text-sm font-medium text-gray-500">
+          Status: <span className="text-green-600">Active</span>
+        </p>
       </div>
     </div>
   );
