@@ -59,9 +59,6 @@ export default function PeoplePage() {
                 <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                   Function
                 </th>
-                <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                  Status
-                </th>
               </tr>
             </thead>
             <tbody className="bg-white">
@@ -105,11 +102,6 @@ function TableRow({
       <td className="py-4 px-6 border-b border-gray-200 truncate">{email}</td>
       <td className="py-4 px-6 border-b border-gray-200">{location}</td>
       <td className="py-4 px-6 border-b border-gray-200">{fct}</td>
-      <td className="py-4 px-6 border-b border-gray-200">
-        <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-          Inactive
-        </span>
-      </td>
     </tr>
   );
 }

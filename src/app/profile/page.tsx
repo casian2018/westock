@@ -7,19 +7,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 
 export default function Profile() {
-  const session = useSession();
   const user = useUser();
-
-  useEffect(() => {
-    let fct = async () => {
-      if (session.status === "authenticated") {
-        await user.getUserData(session.data?.user?.email || "");
-      }
-      console.log(session);
-    };
-
-    fct();
-  }, [session.status]);
 
   return (
     <main>
@@ -49,13 +37,17 @@ export default function Profile() {
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
+<<<<<<< Updated upstream
                 <p className="text-gray-900">{user.fullName}</p>
+=======
+                <p className="text-gray-900">{user.user?.fullName}</p>
+>>>>>>> Stashed changes
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">
                   Business Name
                 </h3>
-                <p className="text-gray-900">$BUSINESS_NAME$</p>
+                <p className="text-gray-900">{user.user?.username}</p>
               </div>
             </div>
 
@@ -130,5 +122,5 @@ export default function Profile() {
         </div>
       </div>
     </main>
-  )
-};
+  );
+}
