@@ -6,8 +6,6 @@ interface EditAccountProps {
 }
 
 const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [busniessType, setBusniessType] = useState("");
   const [busniessIndustry, setBusniessIndustry] = useState("");
   const [busniessLocation, setBusniessLocation] = useState("");
@@ -16,9 +14,6 @@ const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSave({
-      _id: Date.now().toString(36) + Math.random().toString(36).substr(2),
-      name,
-      email,
       busniessType,
       busniessIndustry,
       busniessLocation,
@@ -28,8 +23,10 @@ const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
   };
 
   const handleOnClose = () => {
-    setName("");
-    setEmail("");
+    setBusniessType("");
+    setBusniessIndustry("");
+    setBusniessLocation("");
+    setBusniessNumber("");
     onClose();
   };
 
@@ -38,28 +35,6 @@ const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
       <div className="bg-white py-2 rounded-lg shadow-lg w-1/3 h-2/3 flex items-center justify-center flex-col">
         <h2 className="text-3xl font-bold mb-4">Edit Account</h2>
         <form onSubmit={handleSubmit} className="w-3/4">
-          <div className="mb-8">
-            <label className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={name}
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={email}
-              placeholder="email@example.com"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
           <div className="mb-8">
             <label className="block text-gray-700">Business Type</label>
             <input
