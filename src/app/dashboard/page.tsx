@@ -5,10 +5,14 @@ import { useUser } from "../Providers/UserProvider";
 import { useEffect } from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
+import { User } from "next-auth";
+import { Stock } from "../types/types";
 
 export default function dashboard() {
   const session = useSession();
-  const user = useUser();
+  const user = useUser() as {
+   user: User | null; getUserData: () => Promise<void>; loading: boolean; setLoading: (loading: boolean) => void; stock: Stock | null 
+};
 
   useEffect(() => {
     let fct = async () => {
@@ -60,22 +64,16 @@ export default function dashboard() {
                 <div className="px-4 py-5 sm:px-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Item 1
+                      {user.user?.stock?.item}
                     </h3>
                     <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      Description for Item 1
+                      {user.user?.stock?.quantity}
                     </p>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
                     <p className="text-sm font-medium text-gray-500">
                       Status: <span className="text-green-600">Active</span>
                     </p>
-                    <a
-                      href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Edit
-                    </a>
                   </div>
                 </div>
               </li>

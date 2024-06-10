@@ -49,7 +49,7 @@ export default function Profile() {
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
-                <p className="text-gray-900">$FULL_NAME$</p>
+                <p className="text-gray-900">{user.fullName}</p>
               </div>
               <div className="flex-grow">
                 <h3 className="text-lg font-medium text-gray-700">

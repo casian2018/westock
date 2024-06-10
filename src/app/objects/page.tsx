@@ -15,7 +15,6 @@ export default function ObjectsPage() {
 
   const handleSaveObjectsItem = async (objectsItem: {
     item: string;
-    link: string;
     location: string;
     quantity: number;
     price: number;
@@ -117,7 +116,6 @@ function saveObjectsItemFct(
   _arg0: import("../types/types").User | User,
   _ObjectsItem: {
     item: string;
-    link: string;
     quantity: number;
     price: number;
     status: string;
