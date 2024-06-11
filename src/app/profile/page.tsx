@@ -41,7 +41,6 @@ export default function Profile() {
 
       <div className="flex flex-row pt-24 px-10 pb-4">
         <DashboardSidebar />
-
         <div className="w-10/12">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold text-gray-800">Profile</h1>
@@ -57,22 +56,15 @@ export default function Profile() {
               Profile Information
             </h2>
             <div className="flex items-center gap-6 p-6 bg-white shadow-lg rounded-lg">
-              <div className="flex-shrink-0">
-                <img
-                  src="$IMAGE_URL$"
-                  alt="Account Image"
-                  className="w-24 h-24 rounded-full border-2 border-gray-200"
-                />
+              <div className="flex-grow">
+                <h3 className="text-xl font-semibold text-gray-700">Full Name</h3>
+                <p className="text-gray-900 text-lg capitalize">{user.user?.fullName}</p>
               </div>
               <div className="flex-grow">
-                <h3 className="text-lg font-medium text-gray-700">Full Name</h3>
-                <p className="text-gray-900">{user.user?.fullName}</p>
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-medium text-gray-700">
+                <h3 className="text-xl font-semibold text-gray-700">
                   Business Name
                 </h3>
-                <p className="text-gray-900">{user.user?.username}</p>
+                <p className="text-gray-900 text-lg">{user.user?.username}</p>
               </div>
             </div>
             <div className="mt-6 p-6 bg-white shadow-lg rounded-lg">
@@ -94,6 +86,7 @@ export default function Profile() {
                     placeholder="e.g., Retail, Wholesale"
                     className="w-full p-2 border border-gray-300 rounded-lg"
                     value={user.user?.busniessType}
+                    disabled
                   />
                 </div>
                 <div>
@@ -110,6 +103,7 @@ export default function Profile() {
                     placeholder="e.g., Electronics, Clothing"
                     className="w-full p-2 border border-gray-300 rounded-lg"
                     value={user.user?.busniessIndustry}
+                    disabled
                   />
                 </div>
                 <div>
@@ -126,6 +120,7 @@ export default function Profile() {
                     placeholder="e.g., New York, NY"
                     className="w-full p-2 border border-gray-300 rounded-lg"
                     value={user.user?.busniessLocation}
+                    disabled
                   />
                 </div>
                 <div>
@@ -142,6 +137,7 @@ export default function Profile() {
                     placeholder="e.g., (123) 456-7890"
                     className="w-full p-2 border border-gray-300 rounded-lg"
                     value={user.user?.busniessNumber}
+                    disabled
                   />
                 </div>
               </div>

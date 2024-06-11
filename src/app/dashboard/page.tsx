@@ -19,7 +19,7 @@ export default function dashboard() {
             <div className="bg-no-repeat bg-red-200 border border-red-300 rounded-xl w-7/12 mr-2 p-6">
               <p className="text-5xl text-indigo-900">
                 Welcome <br />
-                <strong>{user.user?.fullName}</strong>
+                <strong className="capitalize">{user.user?.fullName}</strong>
               </p>
               <span className="bg-red-300 text-xl text-white inline-block rounded-full mt-12 px-8 py-2">
                 <strong>01:51</strong>
