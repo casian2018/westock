@@ -57,8 +57,12 @@ export default function Profile() {
             </h2>
             <div className="flex items-center gap-6 p-6 bg-white shadow-lg rounded-lg">
               <div className="flex-grow">
-                <h3 className="text-xl font-semibold text-gray-700">Full Name</h3>
-                <p className="text-gray-900 text-lg capitalize">{user.user?.fullName}</p>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  Full Name
+                </h3>
+                <p className="text-gray-900 text-lg capitalize">
+                  {user.user?.fullName}
+                </p>
               </div>
               <div className="flex-grow">
                 <h3 className="text-xl font-semibold text-gray-700">
@@ -148,6 +152,10 @@ export default function Profile() {
 
       {showModal && (
         <ProfileModal
+          currentType={user.user?.busniessType || ""}
+          currentIndustry={user.user?.busniessIndustry || ""}
+          currentLocation={user.user?.busniessLocation || ""}
+          currentNumber={user.user?.busniessNumber || ""}
           onClose={() => setShowModal(false)}
           onSave={handleSaveProfile}
         ></ProfileModal>

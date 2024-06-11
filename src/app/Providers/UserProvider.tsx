@@ -31,6 +31,7 @@ function UserProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     let fct = async () => {
+      if (session.status === "loading") setLoading(true);
       if (session.status === "authenticated") {
         setLoading(true);
         await getUserDataByEmail(session.data?.user?.email || "");

@@ -1,15 +1,14 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useUser } from "../Providers/UserProvider";
 import { useState } from "react";
 import { ObjectsModal } from "../components/ObjectsModal";
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
-import { User } from "next-auth";
+import saveObjectsItemFct from "../api/auth/dashboardFunctions/saveObjectsItems";
+import { User } from "../types/types";
 
 export default function ObjectsPage() {
-  const session = useSession();
   const user = useUser();
   const [showModal, setShowModal] = useState(false);
 
@@ -45,26 +44,6 @@ export default function ObjectsPage() {
                 Add Objects
               </button>
             </div>
-            {/* <table className="w-full mt-4">
-              <thead>
-                <tr>
-                  <th className="text-left">Name</th>
-                  <th className="text-left">Link</th>
-                  <th className="text-left">Quantity</th>
-                  <th className="text-left">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {user?.user?.stock?.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.item}</td>
-                    <td>{item.link}</td>
-                    <td>{item.quantity}</td>
-                    <td>{item.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table> */}
             <table className="w-full table-fixed">
               <thead>
                 <tr className="bg-gray-100">
@@ -72,27 +51,37 @@ export default function ObjectsPage() {
                     Name
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                  Quantity 
+                    Quantity
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                     Price
+                    Price
                   </th>
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                     Location
                   </th>
-                    <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                        Status
-                    </th>
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Status
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 {user?.user?.objects?.map((item, index) => (
                   <tr key={index}>
-                    <td className="py-4 px-6 border-b border-gray-200">{item.item}</td>
-                    <td className="py-4 px-6 border-b border-gray-200">{item.quantity}</td>
-                    <td className="py-4 px-6 border-b border-gray-200">{item.price}</td>
-                    <td className="py-4 px-6 border-b border-gray-200">{item.location}</td>
-                    <td className="py-4 px-6 border-b border-gray-200">{item.status}</td>
+                    <td className="py-4 px-6 border-b border-gray-200">
+                      {item.item}
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-200">
+                      {item.quantity}
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-200">
+                      {item.price}
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-200">
+                      {item.location}
+                    </td>
+                    <td className="py-4 px-6 border-b border-gray-200">
+                      {item.status}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -108,19 +97,4 @@ export default function ObjectsPage() {
       </div>
     </div>
   );
-}
-
-
-
-function saveObjectsItemFct(
-  _arg0: import("../types/types").User | User,
-  _ObjectsItem: {
-    item: string;
-    quantity: number;
-    price: number;
-    status: string;
-    _id: string;
-  }
-) {
-  throw new Error("An error occurred while saving the objects item.");
 }
