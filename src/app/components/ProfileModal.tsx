@@ -31,72 +31,35 @@ const EditAccount: React.FC<EditAccountProps> = ({ onClose, onSave }) => {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50">
-      <div className="bg-white py-2 rounded-lg shadow-lg w-1/3 h-2/3 flex items-center justify-center flex-col">
-        <h2 className="text-3xl font-bold mb-4">Edit Account</h2>
-        <form onSubmit={handleSubmit} className="w-3/4">
-          <div className="mb-8">
-            <label className="block text-gray-700">Business Type</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={busniessType}
-              placeholder="e.g., Retail, Wholesale"
-              onChange={(e) => setBusniessType(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Industry</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={busniessIndustry}
-              placeholder="e.g., Food, Clothing"
-              onChange={(e) => setBusniessIndustry(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Location</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={busniessLocation}
-              placeholder="e.g., Lagos, Nigeria"
-              onChange={(e) => setBusniessLocation(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-gray-700">Phone Number</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2"
-              value={busniessNumber}
-              placeholder="e.g., 08012345678"
-              onChange={(e) => setBusniessNumber(e.target.value)}
-              required
-            />
-          </div>
-          <div className="flex justify-end">
-            <button
-              type="button"
-              className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2"
-              onClick={handleOnClose}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white rounded-lg px-4 py-2"
-            >
-              Save
-            </button>
-          </div>
-        </form>
+<div className="absolute top-0 left-0 right-0 bottom-0 inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50">
+  <div className="bg-white py-6 px-8 rounded-lg shadow-lg w-full max-w-[550px] h-3/4 overflow-y-auto flex items-center justify-center flex-col">
+    <h2 className="text-3xl font-bold mb-4">Edit Account & Book Appointment</h2>
+    <form className="w-full" onSubmit={handleSubmit}>
+      <div className="mb-5">
+        <label htmlFor="businessType" className="mb-3 block text-base font-medium text-[#07074D]">Business Type</label>
+        <input type="text" name="businessType" value={busniessType} id="businessType" placeholder="e.g., Retail, Wholesale" onChange={(e) => setBusniessType(e.target.value)} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
       </div>
-    </div>
+      <div className="mb-5">
+        <label htmlFor="industry" className="mb-3 block text-base font-medium text-[#07074D]">Industry</label>
+        <input type="text" name="industry" id="industry" placeholder="e.g., Food, Clothing" value={busniessIndustry}
+              onChange={(e) => setBusniessIndustry(e.target.value)} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+      </div>
+      <div className="mb-5">
+        <label htmlFor="location" className="mb-3 block text-base font-medium text-[#07074D]">Location</label>
+        <input type="text" name="location" id="location" placeholder="e.g., Lagos, Nigeria" value={busniessLocation} onChange={(e) => setBusniessLocation(e.target.value)} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+      </div>
+      <div className="mb-5">
+        <label htmlFor="businessNumber" className="mb-3 block text-base font-medium text-[#07074D]">Business Phone Number</label>
+        <input type="text" name="businessNumber" id="businessNumber" placeholder="e.g., 08012345678" value={busniessNumber} onChange={(e) => setBusniessNumber(e.target.value)} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+      </div>
+      <div className="flex justify-end">
+        <button type="button" className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2" onClick={handleOnClose}>Cancel</button>
+        <button type="submit" className="bg-blue-500 text-white rounded-lg px-4 py-2">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   );
 };
 
