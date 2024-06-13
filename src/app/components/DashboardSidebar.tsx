@@ -26,6 +26,12 @@ export default function DashboardSidebar() {
         >
           Objects
         </a>
+        <a
+          href="/manage"
+          className="inline-block text-gray-600 hover:text-black my-4 w-full"
+        >
+          Manage People
+        </a>
       </div>
 
       <div className="bg-white rounded-xl shadow-lg mb-6 px-6 py-4">
