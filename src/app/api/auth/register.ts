@@ -44,6 +44,20 @@ export default async function register(
       stock: [],
       people: [],
       objects: [],
+      paymentInfo: {
+        cardNumber: "",
+        expiaryDate: "",
+        cvv: "",
+        firstName: "",
+        lastName: "",
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        country: "",
+      },
+      autoPayment: true,
+      theme: "light",
     });
 
     await user.save();

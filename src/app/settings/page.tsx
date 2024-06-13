@@ -1,4 +1,5 @@
-import router from "next/dist/client/router";
+"use client";
+
 import DashboardHeader from "../components/DashboardHeader";
 import DashboardSidebar from "../components/DashboardSidebar";
 import {
@@ -9,9 +10,13 @@ import {
   FaEdit,
 } from "react-icons/fa";
 import OtherSettings from "../components/OtherSettings";
+import { useState } from "react";
+import PaymentModal from "../components/PaymentModal";
 
 const settingsPage = () => {
-  
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showOtherSettingsModal, setShowOtherSettingsModal] = useState(false);
+
   return (
     <main>
       <DashboardHeader />
@@ -50,7 +55,10 @@ const settingsPage = () => {
                 </div>
               </div>
               <div>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+                <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center"
+                  onClick={() => setShowPaymentModal(true)}
+                >
                   <FaEdit className="mr-2" /> Edit
                 </button>
               </div>
@@ -69,7 +77,10 @@ const settingsPage = () => {
                 </div>
               </div>
               <div className="flex items-center">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+                <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center"
+                  onClick={() => setShowOtherSettingsModal(true)}
+                >
                   <FaEdit className="mr-2" /> View
                 </button>
               </div>
@@ -86,7 +97,10 @@ const settingsPage = () => {
                 </div>
               </div>
               <div>
-                <a className="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center" href="/delete">
+                <a
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center"
+                  href="/delete"
+                >
                   <FaTrashAlt className="mr-2" /> Delete Account
                 </a>
               </div>
@@ -94,7 +108,17 @@ const settingsPage = () => {
           </div>
         </div>
       </div>
-      <OtherSettings />
+
+      {showPaymentModal && (
+        <PaymentModal
+          onClose={() => {
+            setShowPaymentModal(false);
+          }}
+        ></PaymentModal>
+      )}
+      {showOtherSettingsModal && (
+        <OtherSettings onClose={() => setShowOtherSettingsModal(false)} />
+      )}
     </main>
   );
 };

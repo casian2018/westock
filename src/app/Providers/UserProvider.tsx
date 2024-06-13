@@ -37,6 +37,10 @@ function UserProvider({ children }: { children: React.ReactNode }) {
         await getUserDataByEmail(session.data?.user?.email || "");
         setLoading(false);
       }
+      if (session.status === "unauthenticated") {
+        setLoading(false);
+        setUser(null);
+      }
       console.log(session);
     };
 

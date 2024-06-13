@@ -37,6 +37,20 @@ interface User {
   busniessIndustry: string;
   busniessLocation: string;
   busniessNumber: string;
+  paymentInfo: {
+    cardNumber: string;
+    expiaryDate: string;
+    cvv: string;
+    firstName: string;
+    lastName: string;
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+  };
+  autoPayment: boolean;
+  theme: string;
 }
 
 export type { Stock, People, Objects, User };

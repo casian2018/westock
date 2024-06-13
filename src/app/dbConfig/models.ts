@@ -51,6 +51,18 @@ const user = new mongoose.Schema({
     type: String,
     required: false,
   },
+  paymentInfo: {
+    type: Object,
+    required: true,
+  },
+  autoPayment: {
+    type: Boolean,
+    required: true,
+  },
+  theme: {
+    type: String,
+    required: true,
+  },
 });
 
 export const userModel =
