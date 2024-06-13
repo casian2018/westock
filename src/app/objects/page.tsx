@@ -86,7 +86,7 @@ export default function ObjectsPage() {
                 ))}
 
                 {user.user?.objects.length === 0 && (
-                  <p>Nu ai nimic in stock (casi pls)</p>
+                  <p className="py-4 px-6 border-b border-gray-200">Nu ai nici un obiect in firma adaugat.</p>
                 )}
               </tbody>
             </table>
@@ -197,47 +197,42 @@ function ObjectRow({
         </>
       )}
 
-      <td className="py-4 px-6 border-b border-gray-200 flex">
-        {!edit && (
-          <>
-            <FaEdit
-              className=" cursor-pointer"
-              height={60}
-              onClick={() => {
-                setEdit(true);
-              }}
-            />
-            <MdDelete
-              className=" cursor-pointer"
-              height={60}
+<td className="py-4 px-6 border-b border-gray-200 flex items-center space-x-4">
+          {!edit ? (
+            <>
+              <FaEdit
+                className="cursor-pointer text-blue-500"
+                size={20}
+                onClick={() => setEdit(true)}
+              />
+              <MdDelete
+                className="cursor-pointer text-red-500"
+                size={20}
+                onClick={async () => {
+                  await deleteObjectsFct(user.user || ({} as User), _id);
+                  await user.getUserData();
+                }}
+              />
+            </>
+          ) : (
+            <TiTick
+              className="cursor-pointer text-green-500"
+              size={20}
               onClick={async () => {
-                await deleteObjectsFct(user.user || ({} as User), _id);
-                await user.getUserData();
-              }}
-            />
-          </>
-        )}
-        {edit && (
-          <TiTick
-            className=" cursor-pointer"
-            height={60}
-            onClick={async () => {
-              setEdit(false);
-
-              await updateObjectsFct(user.user || ({} as User), {
+                setEdit(false);
+                await updateObjectsFct(user.user || ({} as User), {
                 item: nameVal,
                 quantity: quantityVal,
                 price: priceVal,
                 location: locationVal,
                 status: statusVal,
                 _id: _id,
-              });
-
-              await user.getUserData();
-            }}
-          />
-        )}
-      </td>
+                });
+                await user.getUserData();
+              }}
+            />
+          )}
+        </td>
     </tr>
   );
 }

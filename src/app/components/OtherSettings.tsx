@@ -70,6 +70,25 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
           </select>
           <p className="text-gray-500">Adjust your theme settings.</p>
         </div>
+        
+        <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Number Range
+            </h2>
+            <div className="flex">
+              <input
+                type="number"
+                className="w-1/2 py-4 px-2 border-2 rounded-lg mr-2"
+                placeholder="Low Number"
+              />
+              <input
+                type="number"
+                className="w-1/2 py-4 px-2 border-2 rounded-lg"
+                placeholder="High Number"
+              />
+            </div>
+            <p className="text-gray-500">Enter the low and high numbers.</p>
+          </div>
 
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">

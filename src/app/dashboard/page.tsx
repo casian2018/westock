@@ -150,12 +150,6 @@ function PeopleItem({
       </div>
       <div className="mt-4 flex items-center justify-between">
         <p className="text-sm font-medium text-gray-500">{fct}</p>
-        <a
-          href="#"
-          className="font-medium text-indigo-600 hover:text-indigo-500"
-        >
-          Edit
-        </a>
       </div>
     </div>
   );
@@ -182,12 +176,6 @@ function ObjectItem({
         <p className="text-sm font-medium text-gray-500">
           Status: <span className="text-green-600">{status}</span>
         </p>
-        <a
-          href="#"
-          className="font-medium text-indigo-600 hover:text-indigo-500"
-        >
-          Edit
-        </a>
       </div>
     </div>
   );
