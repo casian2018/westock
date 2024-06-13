@@ -7,6 +7,11 @@ import DashboardSidebar from "../components/DashboardSidebar";
 import PeopleModal from "../components/PeopleModal";
 import savePeople from "../api/auth/dashboardFunctions/savePeople";
 import { User } from "../types/types";
+import { TiTick } from "react-icons/ti";
+import updatePeopleFct from "../api/auth/dashboardFunctions/updatePeople";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import deletePeopleFct from "../api/auth/dashboardFunctions/deletePeople";
 
 export default function PeoplePage() {
   const [showModal, setShowModal] = useState(false);
@@ -59,6 +64,9 @@ export default function PeoplePage() {
                 <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                   Function
                 </th>
+                <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="bg-white">
@@ -68,6 +76,7 @@ export default function PeoplePage() {
                   email={pers.email}
                   location={pers.location}
                   fct={pers.function}
+                  _id={pers._id}
                 ></TableRow>
               ))}
 
@@ -94,18 +103,121 @@ function TableRow({
   email,
   location,
   fct,
+  _id,
 }: {
   name: string;
   email: string;
   location: string;
   fct: string;
+  _id: string;
 }) {
+  const user = useUser();
+
+  const [edit, setEdit] = useState(false);
+
+  const [nameVal, setName] = useState(name);
+  const [emailVal, setEmail] = useState(email);
+  const [locationVal, setLocation] = useState(location);
+  const [fctVal, setFct] = useState(fct);
+
   return (
     <tr>
-      <td className="py-4 px-6 border-b border-gray-200">{name}</td>
-      <td className="py-4 px-6 border-b border-gray-200 truncate">{email}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{location}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{fct}</td>
+      {!edit && (
+        <>
+          <td className="py-4 px-6 border-b border-gray-200">{name}</td>
+          <td className="py-4 px-6 border-b border-gray-200 truncate">
+            {email}
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">{location}</td>
+          <td className="py-4 px-6 border-b border-gray-200">{fct}</td>
+        </>
+      )}
+
+      {edit && (
+        <>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={nameVal}
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200 truncate">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={emailVal}
+              placeholder="Eamil"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={locationVal}
+              placeholder="Location"
+              onChange={(e) => setLocation(e.target.value)}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={fctVal}
+              placeholder="Function"
+              onChange={(e) => setFct(e.target.value)}
+              required
+            />
+          </td>
+        </>
+      )}
+
+      <td className="py-4 px-6 border-b border-gray-200 flex">
+        {!edit && (
+          <>
+            <FaEdit
+              className=" cursor-pointer"
+              height={60}
+              onClick={() => {
+                setEdit(true);
+              }}
+            />
+            <MdDelete
+              className=" cursor-pointer"
+              height={60}
+              onClick={async () => {
+                await deletePeopleFct(user.user || ({} as User), _id);
+                await user.getUserData();
+              }}
+            />
+          </>
+        )}
+        {edit && (
+          <TiTick
+            className=" cursor-pointer"
+            height={60}
+            onClick={async () => {
+              setEdit(false);
+
+              await updatePeopleFct(user.user || ({} as User), {
+                name: nameVal,
+                email: emailVal,
+                location: locationVal,
+                function: fctVal,
+                _id: _id,
+              });
+
+              await user.getUserData();
+            }}
+          />
+        )}
+      </td>
     </tr>
   );
 }
