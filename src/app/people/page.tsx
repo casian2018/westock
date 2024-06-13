@@ -81,7 +81,7 @@ export default function PeoplePage() {
               ))}
 
               {user.user?.people.length === 0 && (
-                <p>Nu ai nimic in stock (casi pls)</p>
+                <p className="py-4 px-6 text-left text-gray-600 font-bold uppercase">Nu ai nici un angajat adaugat la lista de persoane.</p>
               )}
             </tbody>
           </table>
@@ -178,46 +178,41 @@ function TableRow({
         </>
       )}
 
-      <td className="py-4 px-6 border-b border-gray-200 flex">
-        {!edit && (
-          <>
-            <FaEdit
-              className=" cursor-pointer"
-              height={60}
-              onClick={() => {
-                setEdit(true);
-              }}
-            />
-            <MdDelete
-              className=" cursor-pointer"
-              height={60}
+<td className="py-4 px-6 border-b border-gray-200 flex items-center space-x-4">
+          {!edit ? (
+            <>
+              <FaEdit
+                className="cursor-pointer text-blue-500"
+                size={20}
+                onClick={() => setEdit(true)}
+              />
+              <MdDelete
+                className="cursor-pointer text-red-500"
+                size={20}
+                onClick={async () => {
+                  await deletePeopleFct(user.user || ({} as User), _id);
+                  await user.getUserData();
+                }}
+              />
+            </>
+          ) : (
+            <TiTick
+              className="cursor-pointer text-green-500"
+              size={20}
               onClick={async () => {
-                await deletePeopleFct(user.user || ({} as User), _id);
-                await user.getUserData();
-              }}
-            />
-          </>
-        )}
-        {edit && (
-          <TiTick
-            className=" cursor-pointer"
-            height={60}
-            onClick={async () => {
-              setEdit(false);
-
-              await updatePeopleFct(user.user || ({} as User), {
-                name: nameVal,
+                setEdit(false);
+                await updatePeopleFct(user.user || ({} as User), {
+                 name: nameVal,
                 email: emailVal,
                 location: locationVal,
                 function: fctVal,
                 _id: _id,
-              });
-
-              await user.getUserData();
-            }}
-          />
-        )}
-      </td>
+                });
+                await user.getUserData();
+              }}
+            />
+          )}
+        </td>
     </tr>
   );
 }
