@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUser } from "../Providers/UserProvider";
 
 interface OtherSettingsProps {
@@ -7,6 +7,8 @@ interface OtherSettingsProps {
 
 const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
   const user = useUser();
+
+  const [autoPayment, setAutoPayment] = useState(user.user?.autoPayment);
 
   const handleClose = () => {
     onClose();
@@ -20,12 +22,18 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
             Activate / Cancel Auto Payment
           </h2>
 
-          {user.user?.autoPayment ? (
-            <button className="hover:shadow-form w-full rounded-md bg-red-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
+          {autoPayment ? (
+            <button
+              className="hover:shadow-form w-full rounded-md bg-red-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
+              onClick={() => setAutoPayment(false)}
+            >
               Cancel Auto Payment
             </button>
           ) : (
-            <button className="hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
+            <button
+              className="hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
+              onClick={() => setAutoPayment(true)}
+            >
               Activate Auto Payment
             </button>
           )}
@@ -97,20 +105,20 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
         </div>
 
         <div className="flex justify-end">
-            <button
-              type="button"
-              className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2"
-              onClick={() => handleClose()}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white rounded-lg px-4 py-2"
-            >
-              Save
-            </button>
-          </div>
+          <button
+            type="button"
+            className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2"
+            onClick={() => handleClose()}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white rounded-lg px-4 py-2"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );

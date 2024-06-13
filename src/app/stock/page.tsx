@@ -7,10 +7,14 @@ import DashboardSidebar from "../components/DashboardSidebar";
 import StockModal from "../components/StockModal";
 import saveStockItemFct from "../api/auth/dashboardFunctions/saveStockItem";
 import { User } from "../types/types";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
+import updateStockItemFct from "../api/auth/dashboardFunctions/updateStock";
+import deleteStockItemFct from "../api/auth/dashboardFunctions/deleteStock";
 
 export default function Stock() {
   const user = useUser();
-  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
   const handleSaveStockItem = async (stockItem: {
@@ -44,26 +48,6 @@ export default function Stock() {
                 Add Stock
               </button>
             </div>
-            {/* <table className="w-full mt-4">
-              <thead>
-                <tr>
-                  <th className="text-left">Name</th>
-                  <th className="text-left">Link</th>
-                  <th className="text-left">Quantity</th>
-                  <th className="text-left">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {user?.user?.stock?.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.item}</td>
-                    <td>{item.link}</td>
-                    <td>{item.quantity}</td>
-                    <td>{item.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table> */}
             <table className="w-full table-fixed">
               <thead>
                 <tr className="bg-gray-100">
@@ -79,17 +63,26 @@ export default function Stock() {
                   <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                     Price
                   </th>
+                  <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white">
-                {user.user?.stock.map((stock) => (
+                {user.user?.stock.map((stock, index) => (
                   <TableRow
+                    key={index}
+                    _id={stock._id}
                     name={stock.item}
                     link={stock.link}
                     quantity={stock.quantity}
                     price={stock.price}
                   ></TableRow>
                 ))}
+
+                {user.user?.stock.length === 0 && (
+                  <p>Nu ai nimic in stock (casi pls)</p>
+                )}
               </tbody>
             </table>
           </div>
@@ -107,22 +100,125 @@ export default function Stock() {
 }
 
 function TableRow({
+  _id,
   name,
   link,
   quantity,
   price,
 }: {
+  _id: string;
   name: string;
   link: string;
   quantity: number;
   price: number;
 }) {
+  const user = useUser();
+
+  const [edit, setEdit] = useState(false);
+
+  const [nameVal, setName] = useState(name);
+  const [linkVal, setLink] = useState(link);
+  const [quantityVal, setQuantity] = useState(quantity);
+  const [priceVal, setPrice] = useState(price);
+
   return (
     <tr>
-      <td className="py-4 px-6 border-b border-gray-200">{name}</td>
-      <td className="py-4 px-6 border-b border-gray-200 truncate">{link}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
-      <td className="py-4 px-6 border-b border-gray-200">{price}</td>
+      {!edit && (
+        <>
+          <td className="py-4 px-6 border-b border-gray-200">{name}</td>
+          <td className="py-4 px-6 border-b border-gray-200 truncate">
+            <a href={link} className="text-blue-400 underline">
+              {link}
+            </a>
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
+          <td className="py-4 px-6 border-b border-gray-200">{price}</td>
+        </>
+      )}
+
+      {edit && (
+        <>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={nameVal}
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200 truncate">
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={linkVal}
+              placeholder="Link"
+              onChange={(e) => setLink(e.target.value)}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="number"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={quantityVal}
+              placeholder="Quantity"
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              required
+            />
+          </td>
+          <td className="py-4 px-6 border-b border-gray-200">
+            <input
+              type="number"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              value={priceVal}
+              placeholder="Price"
+              onChange={(e) => setPrice(Number(e.target.value))}
+              required
+            />
+          </td>
+        </>
+      )}
+      <td className="py-4 px-6 border-b border-gray-200 flex">
+        {!edit && (
+          <>
+            <FaEdit
+              className=" cursor-pointer"
+              height={60}
+              onClick={() => {
+                setEdit(true);
+              }}
+            />
+            <MdDelete
+              className=" cursor-pointer"
+              height={60}
+              onClick={async () => {
+                await deleteStockItemFct(user.user || ({} as User), _id);
+              }}
+            />
+          </>
+        )}
+        {edit && (
+          <TiTick
+            className=" cursor-pointer"
+            height={60}
+            onClick={async () => {
+              setEdit(false);
+
+              await updateStockItemFct(user.user || ({} as User), {
+                item: nameVal,
+                link: linkVal,
+                quantity: quantityVal,
+                price: priceVal,
+                _id: _id,
+              });
+
+              await user.getUserData();
+            }}
+          />
+        )}
+      </td>
     </tr>
   );
 }

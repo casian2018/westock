@@ -33,7 +33,7 @@ export default function PeoplePage() {
       <div className="flex flex-row pt-24 px-10 pb-4">
         <DashboardSidebar />
 
-        <div className="mt-4 w-10/12">
+        <div className="w-10/12">
           <div className="flex items-center justify-between mb-4">
             <div className="font-bold text-lg">People List</div>
             <button
@@ -70,6 +70,10 @@ export default function PeoplePage() {
                   fct={pers.function}
                 ></TableRow>
               ))}
+
+              {user.user?.people.length === 0 && (
+                <p>Nu ai nimic in stock (casi pls)</p>
+              )}
             </tbody>
           </table>
         </div>
