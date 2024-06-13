@@ -96,15 +96,21 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
           </p>
         </div>
 
-        <div>
-          <button className="w-12 bg-slate-500 text-white">Save</button>
-          <button
-            className="w-12 bg-slate-500 text-white"
-            onClick={() => handleClose()}
-          >
-            Close
-          </button>
-        </div>
+        <div className="flex justify-end">
+            <button
+              type="button"
+              className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2"
+              onClick={() => handleClose()}
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="bg-blue-500 text-white rounded-lg px-4 py-2"
+            >
+              Save
+            </button>
+          </div>
       </div>
     </div>
   );
