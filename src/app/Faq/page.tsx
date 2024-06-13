@@ -1,18 +1,13 @@
 import logo from "@/assets/WeStock_1.svg";
-
 export default function Home() {
     return (
-      <>
+      <main className="w-full">
         <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
           <div className="px-4">
             <div className="flex items-center justify-between">
               <div className="flex shrink-0">
                 <a aria-current="page" className="flex items-center" href="/">
-                  <img
-                    className="h-7 w-auto"
-                    src={logo.src}
-                    alt=""
-                  />
+                  <img className="h-7 w-auto" src={logo.src} alt="" />
                   <p className="sr-only">WeStock</p>
                 </a>
               </div>
@@ -47,71 +42,53 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </header>
-        <div className="container" >
-        <p className="titluri">Privacy Policy</p>
-             
+        </header><div className="container">
+            <p className="titluri">Frequently Asked Questions (FAQ)</p>
 
-            <p className="titluri">Last Updated: June 9, 2024</p>
-  
-            Welcome to WeStock. We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how WeStock collects, uses, discloses, and safeguards your information when you use our web application. By accessing or using WeStock, you agree to this Privacy Policy. 
-            <p className="titluri">1. Information We Collect  </p>
-We may collect personal information from you in various ways, including when you:
- 
-- Register for an account 
-- Use our web application 
-- Contact customer support 
-- Participate in surveys or promotions
- 
-<p className="titluri">The types of information we may collect include:</p>
- 
-- Personal Identification Information: Name, email address, phone number, company name, and address. 
-- Financial Information: Payment details necessary for transactions. 
-- Usage Data: Information about how you use our web application, including your IP address, browser type, access times, and pages viewed. 
- 
-<p className="titluri">2. How We Use Your Information </p> 
-We use the information we collect to:
- 
-- Provide, operate, and maintain our services 
-- Improve, personalize, and expand our services 
-- Process transactions and send related information 
-- Communicate with you, including responding to customer service requests 
-- Send you updates, marketing, and promotional materials 
-- Analyze usage and trends to enhance user experience 
- 
-<p className="titluri">3. Information Sharing and Disclosure  </p>
-We do not sell, trade, or otherwise transfer your personal information to outside parties except in the following circumstances:
- 
-- With your consent 
-- To comply with legal obligations 
-- To protect and defend our rights and property 
-- With service providers who perform services on our behalf 
-- In connection with a merger, acquisition, or sale of all or a portion of our assets
-  
-<p className="titluri">4. Data Security  </p>
-We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
-  
-<p className="titluri">5. Your Choices and Rights  </p>
-You have the right to:
- 
-- Access and update your personal information 
-- Request deletion of your personal information 
-- Opt-out of receiving marketing communications 
- 
-To exercise these rights, please contact us at westock@ctp.one 
- 
-<p className="titluri">6. Cookies and Tracking Technologies </p> 
-We use cookies and similar tracking technologies to enhance your experience on our web application. You can control the use of cookies through your browser settings.
-  
-<p className="titluri">7. Changes to This Privacy Policy  </p>
-We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. Your continued use of WeStock after such modifications will constitute your acknowledgment of the modified Privacy Policy.
-  
-<p className="titluri">8. Contact Us </p> 
-If you have any questions about this Privacy Policy, please contact us at:
-Thank you for trusting WeStock with your stock management needs.</div>
+Welcome to the WeStock FAQ page! Here you'll find answers to common questions about our stock management web application. If you can't find the answer you're looking for, feel free to contact us at support@westock.com.
 
-        
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+<p className="titluri">1. What is WeStock?</p>
+WeStock is a web application designed to simplify and streamline inventory management for businesses of all sizes. Our platform offers real-time updates, detailed analytics, and smart forecasting tools to help you manage your stock efficiently.
+
+<p className="titluri">2. How do I create an account?</p>
+To create an account, click on the "Sign Up" button on our homepage and fill in the required information, including your name, email address, and password. You will receive a confirmation email to verify your account.
+
+<p className="titluri">3. Is there a free trial available?</p>
+Yes, we offer a 30-day free trial for new users. During this trial period, you can explore all the features of WeStock without any limitations. To start your free trial, simply sign up on our website.
+
+<p className="titluri">4. What payment methods do you accept?</p>
+We accept major credit cards, including Visa, MasterCard, and American Express. For larger organizations, we can also arrange for invoicing and bank transfers. Please contact our sales team for more details.
+
+<p className="titluri">5. How do I reset my password?</p>
+If you have forgotten your password, click on the "Forgot Password?" link on the login page. Enter your registered email address, and we will send you instructions on how to reset your password.
+<p className="titluri">6. Can I import my existing inventory data into WeStock?</p>
+Yes, you can easily import your existing inventory data into WeStock using our import tool. We support various file formats, including CSV and Excel. Detailed instructions can be found in our user guide.
+
+<p className="titluri">7. How secure is my data?</p>
+We take data security seriously at WeStock. Our platform uses industry-standard encryption to protect your data. Additionally, we regularly back up data and employ strict access controls to ensure your information is safe.
+
+<p className="titluri">8. Can multiple users access the same account?  </p>
+Yes, WeStock supports multiple user accounts with different access levels. You can add team members to your account and assign roles and permissions to control what they can see and do within the platform.
+
+<p className="titluri">9. What kind of customer support do you offer?</p>
+We offer comprehensive customer support through various channels, including email, live chat, and phone support. Our support team is available 24/7 to assist you with any questions or issues you may have.
+
+<p className="titluri">10. How do I cancel my subscription?</p>
+To cancel your subscription, log in to your account, go to the "Account Settings" page, and select "Cancel Subscription." Follow the prompts to complete the cancellation process. If you need assistance, our support team is here to help.
+<p className="titluri">11. What happens to my data if I cancel my subscription?</p>
+If you cancel your subscription, your data will be retained for 30 days. During this period, you can reactivate your account and restore your data. After 30 days, your data will be permanently deleted from our servers.
+
+<p className="titluri">12. Can I upgrade or downgrade my subscription plan?</p>
+Yes, you can upgrade or downgrade your subscription plan at any time. Simply go to the "Account Settings" page, select "Change Plan," and choose the desired plan. Changes will take effect immediately, and any billing adjustments will be prorated.
+
+<p className="titluri">13. Do you offer training or tutorials?</p>
+We provide a variety of resources to help you get started with WeStock, including video tutorials, user guides, and live webinars. Visit our Help Center for more information and to access these resources.
+
+<p className="titluri">14. How do I contact customer support?</p>
+You can contact our customer support team by emailing support@westock.com, using the live chat feature on our website, or calling our support hotline at 1-800-123-4567. We are here to assist you 24/7.
+
+  Thank you for choosing WeStock! We are here to help you manage your inventory with ease and efficiency.  
+</div> <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <a
@@ -216,7 +193,7 @@ Thank you for trusting WeStock with your stock management needs.</div>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
               <a
-                href="/Faq"
+                href="/"
                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 F.A.Q
@@ -240,6 +217,5 @@ Thank you for trusting WeStock with your stock management needs.</div>
             </li>
           </ul>
         </div>
-      </div> 
-      </>);
-  }
+      </div>
+        </main> )}

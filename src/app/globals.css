@@ -3,8 +3,19 @@
 @tailwind utilities;
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content:left;
+    align-items: left;
     margin-left:20vw;
+    margin-top: 12vh;
     padding-right: 20vw;
+  }
+  .container {
+    font-size: 2vh;
+  }
+  .titluri{
+    font-weight: 800;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: 3vh;
   }

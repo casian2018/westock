@@ -98,7 +98,9 @@ export default function Home() {
                   About us
                 </h2>
 
-                <p></p>
+                <p>
+
+At WeStock, we are dedicated to transforming inventory management for businesses of all sizes. Our intuitive web application provides real-time updates, detailed analytics, and smart forecasting tools to streamline your operations. Combining technological expertise with a deep understanding of supply chain management, our mission is to enhance efficiency and accuracy in your stock management process. Join us at WeStock and experience a simpler, more effective way to manage your inventory.</p>
               </div>
             </main>
           </div>
@@ -312,7 +314,7 @@ export default function Home() {
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
               <a
-                href="/"
+                href="/Faq"
                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
                 F.A.Q
