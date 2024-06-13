@@ -195,6 +195,7 @@ function TableRow({
               height={60}
               onClick={async () => {
                 await deleteStockItemFct(user.user || ({} as User), _id);
+                await user.getUserData();
               }}
             />
           </>
