@@ -56,10 +56,8 @@ export default function dashboard() {
 
                 {user.user?.stock.length == 0 && (
                   <div className="px-4 py-5 sm:px-6">
-                    <p>Nu ai nici un item in stock dau ceva (casi ajutor)</p>
-                    <a href="/stock" className=" text-blue-500">
-                      Edit
-                    </a>
+                    <p className="py-4 text-left text-gray-600 font-bold uppercase">Nu ai nici un item in stock.</p>
+                    
                   </div>
                 )}
               </li>
@@ -81,12 +79,9 @@ export default function dashboard() {
 
                 {user.user?.people.length == 0 && (
                   <div className="px-4 py-5 sm:px-6">
-                    <p>
-                      Nu ai nici un persoana in stock dau ceva (casi ajutor)
+                    <p className="py-4 text-left text-gray-600 font-bold uppercase">
+                      Nu ai nici un persoana in lista de angajati.
                     </p>
-                    <a href="/people" className=" text-blue-500">
-                      Edit
-                    </a>
                   </div>
                 )}
               </li>
@@ -108,10 +103,7 @@ export default function dashboard() {
 
                 {user.user?.objects.length == 0 && (
                   <div className="px-4 py-5 sm:px-6">
-                    <p>Nu ai nici un obiect in stock dau ceva (casi ajutor)</p>
-                    <a href="/objects" className=" text-blue-500">
-                      Edit
-                    </a>
+                    <p className="py-4 text-left text-gray-600 font-bold uppercase">Nu ai nici un obiect in objects.</p>
                   </div>
                 )}
               </li>

@@ -68,6 +68,7 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
               required
+              min={0}
               className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md"
             />
           </div>
@@ -82,6 +83,7 @@ export const ObjectsModal: React.FC<ObjectsModalProps> = ({
               value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
               required
+              min={0}
               className="w-full rounded-md border border-gray-300 bg-white py-2 px-3 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md"
             />
           </div>
