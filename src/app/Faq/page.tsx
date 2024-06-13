@@ -1,94 +1,271 @@
 import logo from "@/assets/WeStock_1.svg";
 export default function Home() {
-    return (
-      <main className="w-full">
-        <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
-          <div className="px-4">
-            <div className="flex items-center justify-between">
-              <div className="flex shrink-0">
-                <a aria-current="page" className="flex items-center" href="/">
-                  <img className="h-7 w-auto" src={logo.src} alt="" />
-                  <p className="sr-only">WeStock</p>
-                </a>
-              </div>
-              <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-                <a
-                  aria-current="page"
-                  className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                  href="#"
-                >
-                  How it works
-                </a>
-                <a
-                  className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                  href="/pricing"
-                >
-                  Pricing
-                </a>
-              </div>
-              <div className="flex items-center justify-end gap-3">
-                <a
-                  className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-                  href="/register"
-                >
-                  Sign up
-                </a>
-                <a
-                  className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                  href="/login"
-                >
-                  Login
-                </a>
-              </div>
+  return (
+    <main className="w-full">
+      <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+        <div className="px-4">
+          <div className="flex items-center justify-between">
+            <div className="flex shrink-0">
+              <a aria-current="page" className="flex items-center" href="/">
+                <img className="h-7 w-auto" src={logo.src} alt="" />
+                <p className="sr-only">WeStock</p>
+              </a>
+            </div>
+            <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
+              <a
+                className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                href="/pricing"
+              >
+                Pricing
+              </a>
+            </div>
+            <div className="flex items-center justify-end gap-3">
+              <a
+                className="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
+                href="/register"
+              >
+                Sign up
+              </a>
+              <a
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                href="/login"
+              >
+                Login
+              </a>
             </div>
           </div>
-        </header><div className="container">
-            <p className="titluri">Frequently Asked Questions (FAQ)</p>
+        </div>
+      </header>
+      <div className="py-4 max-w-screen-sm mx-auto mt-24">
+    <div className="text-center mb-16">
+        <p className="mt-4 text-sm leading-7 text-gray-500 font-regular">
+            F.A.Q
+        </p>
+        <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">
+            Frequently Asked <span className="text-indigo-600">Questions</span>
+        </h3>
+    </div>
 
-Welcome to the WeStock FAQ page! Here you'll find answers to common questions about our stock management web application. If you can't find the answer you're looking for, feel free to contact us at support@westock.com.
+    <div className="px-10 sm:px-16">
 
-<p className="titluri">1. What is WeStock?</p>
-WeStock is a web application designed to simplify and streamline inventory management for businesses of all sizes. Our platform offers real-time updates, detailed analytics, and smart forecasting tools to help you manage your stock efficiently.
+        <div className="py-3 uppercase text-sm text-gray-500 font-medium">
+            General
+        </div>
 
-<p className="titluri">2. How do I create an account?</p>
-To create an account, click on the "Sign Up" button on our homepage and fill in the required information, including your name, email address, and password. You will receive a confirmation email to verify your account.
+        <div className="ml-5">
 
-<p className="titluri">3. Is there a free trial available?</p>
-Yes, we offer a 30-day free trial for new users. During this trial period, you can explore all the features of WeStock without any limitations. To start your free trial, simply sign up on our website.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">What is WeStock?</h1>
+                    <p className="text-gray-500 text-sm">WeStock is a web application designed to simplify and streamline inventory management for businesses of all sizes. Our platform offers real-time updates, detailed analytics, and smart forecasting tools to help you manage your stock efficiently.</p>
+                </div>
+            </div>
 
-<p className="titluri">4. What payment methods do you accept?</p>
-We accept major credit cards, including Visa, MasterCard, and American Express. For larger organizations, we can also arrange for invoicing and bank transfers. Please contact our sales team for more details.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">How do I create an account?</h1>
+                    <p className="text-gray-500 text-sm">To create an account, click on the "Sign Up" button on our homepage and fill in the required information, including your name, email address, and password. You will receive a confirmation email to verify your account.</p>
+                </div>
+            </div>
 
-<p className="titluri">5. How do I reset my password?</p>
-If you have forgotten your password, click on the "Forgot Password?" link on the login page. Enter your registered email address, and we will send you instructions on how to reset your password.
-<p className="titluri">6. Can I import my existing inventory data into WeStock?</p>
-Yes, you can easily import your existing inventory data into WeStock using our import tool. We support various file formats, including CSV and Excel. Detailed instructions can be found in our user guide.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">Is there a free trial available?</h1>
+                    <p className="text-gray-500 text-sm">Yes, we offer a 30-day free trial for new users. During this trial period, you can explore all the features of WeStock without any limitations. To start your free trial, simply sign up on our website.</p>
+                </div>
+            </div>
 
-<p className="titluri">7. How secure is my data?</p>
-We take data security seriously at WeStock. Our platform uses industry-standard encryption to protect your data. Additionally, we regularly back up data and employ strict access controls to ensure your information is safe.
+        </div>
 
-<p className="titluri">8. Can multiple users access the same account?  </p>
-Yes, WeStock supports multiple user accounts with different access levels. You can add team members to your account and assign roles and permissions to control what they can see and do within the platform.
+        <div className="py-3 uppercase text-sm text-gray-500 font-medium">
+            Billing
+        </div>
 
-<p className="titluri">9. What kind of customer support do you offer?</p>
-We offer comprehensive customer support through various channels, including email, live chat, and phone support. Our support team is available 24/7 to assist you with any questions or issues you may have.
+        <div className="ml-5">
 
-<p className="titluri">10. How do I cancel my subscription?</p>
-To cancel your subscription, log in to your account, go to the "Account Settings" page, and select "Cancel Subscription." Follow the prompts to complete the cancellation process. If you need assistance, our support team is here to help.
-<p className="titluri">11. What happens to my data if I cancel my subscription?</p>
-If you cancel your subscription, your data will be retained for 30 days. During this period, you can reactivate your account and restore your data. After 30 days, your data will be permanently deleted from our servers.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">What payment methods do you accept?</h1>
+                    <p className="text-gray-500 text-sm">We accept major credit cards, including Visa, MasterCard, and American Express. For larger organizations, we can also arrange for invoicing and bank transfers. Please contact our sales team for more details.</p>
+                </div>
+            </div>
 
-<p className="titluri">12. Can I upgrade or downgrade my subscription plan?</p>
-Yes, you can upgrade or downgrade your subscription plan at any time. Simply go to the "Account Settings" page, select "Change Plan," and choose the desired plan. Changes will take effect immediately, and any billing adjustments will be prorated.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">How do I reset my password?</h1>
+                    <p className="text-gray-500 text-sm">If you have forgotten your password, click on the "Forgot Password?" link on the login page. Enter your registered email address, and we will send you instructions on how to reset your password.</p>
+                </div>
+            </div>
 
-<p className="titluri">13. Do you offer training or tutorials?</p>
-We provide a variety of resources to help you get started with WeStock, including video tutorials, user guides, and live webinars. Visit our Help Center for more information and to access these resources.
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">Can I import my existing inventory data into WeStock?</h1>
+                    <p className="text-gray-500 text-sm">Yes, you can easily import your existing inventory data into WeStock using our import tool. We support various file formats, including CSV and Excel. Detailed instructions can be found in our user guide.</p>
+                </div>
+            </div>
 
-<p className="titluri">14. How do I contact customer support?</p>
-You can contact our customer support team by emailing support@westock.com, using the live chat feature on our website, or calling our support hotline at 1-800-123-4567. We are here to assist you 24/7.
+        </div>
 
-  Thank you for choosing WeStock! We are here to help you manage your inventory with ease and efficiency.  
-</div> <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div className="py-3 uppercase text-sm text-gray-500 font-medium">
+            Security
+        </div>
+
+        <div className="ml-5">
+
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">How secure is my data?</h1>
+                    <p className="text-gray-500 text-sm">We take data security seriously at WeStock. Our platform uses industry-standard encryption to protect your data. Additionally, we regularly back up data and employ strict access controls to ensure your information is safe.</p>
+                </div>
+            </div>
+
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">Can multiple users access the same account?</h1>
+                    <p className="text-gray-500 text-sm">Yes, WeStock supports multiple user accounts with different access levels. You can add team members to your account and assign roles and permissions to control what they can see and do within the platform.</p>
+                </div>
+            </div>
+
+            <div className="flex items-start my-8">
+                <div
+                    className="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                    <svg width="24px" fill="white" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g data-name="Layer 2">
+                            <g data-name="menu-arrow">
+                                <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                <path
+                                    d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                </path>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div className="text-md">
+                    <h1 className="text-gray-900 font-semibold mb-2">What kind of customer support do you offer?</h1>
+                    <p className="text-gray-500 text-sm">We offer comprehensive customer support through various channels, including email, live chat, and phone support. Our support team is available 24/7 to assist you with any questions or issues you may have.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <a
@@ -97,7 +274,7 @@ You can contact our customer support team by emailing support@westock.com, using
               title="Company"
               className="inline-flex items-center"
             >
-              <img src={logo.src} alt="logo of westock" className="w-12 h-12"/>
+              <img src={logo.src} alt="logo of westock" className="w-12 h-12" />
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                 WeStock
               </span>
@@ -218,4 +395,6 @@ You can contact our customer support team by emailing support@westock.com, using
           </ul>
         </div>
       </div>
-        </main> )}
+    </main>
+  );
+}
