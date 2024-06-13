@@ -66,24 +66,19 @@ export default function ObjectsPage() {
               </thead>
               <tbody className="bg-white">
                 {user?.user?.objects?.map((item, index) => (
-                  <tr key={index}>
-                    <td className="py-4 px-6 border-b border-gray-200">
-                      {item.item}
-                    </td>
-                    <td className="py-4 px-6 border-b border-gray-200">
-                      {item.quantity}
-                    </td>
-                    <td className="py-4 px-6 border-b border-gray-200">
-                      {item.price}
-                    </td>
-                    <td className="py-4 px-6 border-b border-gray-200">
-                      {item.location}
-                    </td>
-                    <td className="py-4 px-6 border-b border-gray-200">
-                      {item.status}
-                    </td>
-                  </tr>
+                  <ObjectRow
+                    item={item.item}
+                    quantity={item.quantity}
+                    price={item.price}
+                    location={item.location}
+                    status={item.status}
+                    index={index}
+                  ></ObjectRow>
                 ))}
+
+                {user.user?.people.length === 0 && (
+                  <p>Nu ai nimic in stock (casi pls)</p>
+                )}
               </tbody>
             </table>
           </div>
@@ -96,5 +91,31 @@ export default function ObjectsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+function ObjectRow({
+  item,
+  quantity,
+  price,
+  location,
+  status,
+  index,
+}: {
+  item: string;
+  quantity: number;
+  price: number;
+  location: string;
+  status: string;
+  index: number;
+}) {
+  return (
+    <tr key={index}>
+      <td className="py-4 px-6 border-b border-gray-200">{item}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{quantity}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{price}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{location}</td>
+      <td className="py-4 px-6 border-b border-gray-200">{status}</td>
+    </tr>
   );
 }

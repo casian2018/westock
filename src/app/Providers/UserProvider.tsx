@@ -26,7 +26,9 @@ function UserProvider({ children }: { children: React.ReactNode }) {
   };
 
   const getUserData = async () => {
+    setLoading(true);
     await getUserDataByEmail(session.data?.user?.email || "");
+    setLoading(false);
   };
 
   useEffect(() => {

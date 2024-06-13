@@ -53,6 +53,15 @@ export default function dashboard() {
                       />
                     )
                 )}
+
+                {user.user?.stock.length == 0 && (
+                  <div className="px-4 py-5 sm:px-6">
+                    <p>Nu ai nici un item in stock dau ceva (casi ajutor)</p>
+                    <a href="/stock" className=" text-blue-500">
+                      Edit
+                    </a>
+                  </div>
+                )}
               </li>
             </ul>
             <ul className="bg-white rounded-xl shadow-lg mx-6 px-6 py-4 w-4/12">
@@ -69,6 +78,17 @@ export default function dashboard() {
                       />
                     )
                 )}
+
+                {user.user?.people.length == 0 && (
+                  <div className="px-4 py-5 sm:px-6">
+                    <p>
+                      Nu ai nici un persoana in stock dau ceva (casi ajutor)
+                    </p>
+                    <a href="/people" className=" text-blue-500">
+                      Edit
+                    </a>
+                  </div>
+                )}
               </li>
             </ul>
             <ul className="bg-white rounded-xl shadow-lg px-6 py-4 w-4/12">
@@ -84,6 +104,15 @@ export default function dashboard() {
                         status={item.status}
                       />
                     )
+                )}
+
+                {user.user?.objects.length == 0 && (
+                  <div className="px-4 py-5 sm:px-6">
+                    <p>Nu ai nici un obiect in stock dau ceva (casi ajutor)</p>
+                    <a href="/objects" className=" text-blue-500">
+                      Edit
+                    </a>
+                  </div>
                 )}
               </li>
             </ul>
