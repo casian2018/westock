@@ -77,7 +77,7 @@ const UserRow = ({
             />
           </td>
           <td className="py-4 px-6 border-b border-gray-200">
-            {user.creationDate}
+            {userInfo.dateCreated}
           </td>
         </>
       )}

@@ -102,7 +102,13 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
               placeholder="High Number"
               onChange={(e) => setHighNumber(parseInt(e.target.value))}
             />
-            <button onClick={handleSaveLowHighNumber}>Save</button>
+            <button
+            onClick={handleSaveLowHighNumber}
+            type="submit"
+            className="bg-blue-500 text-white rounded-lg px-4 py-2"
+          >
+            Save
+          </button>
           </div>
           <p className="text-gray-500">Enter the low and high numbers.</p>
         </div>
@@ -111,30 +117,9 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Who Has Access
           </h2>
-          <button className="hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
+          <a className="hover:shadow-form w-full rounded-md bg-blue-500 py-3 px-8 text-center text-base font-semibold text-white outline-none" href="/manage">
             Manage Access
-          </button>
-          <table className="w-full border-2 my-4">
-            <thead>
-              <tr className="bg-gray-50">
-                <th className="border-2">Name</th>
-                <th className="border-2">Email</th>
-                <th className="border-2">Access</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td className="border-2">John Doe</td>
-                <td className="border-2">
-                  <a href="mailto:info@ctp.one" className="text-blue-500">
-                    <span>info@ctp.one</span>
-                  </a>
-                </td>
-                <td className="border-2">Admin</td>
-              </tr>
-            </tbody>
-          </table>
+          </a>
           <p className="text-gray-500">
             Manage who has access to your account.
           </p>
@@ -146,13 +131,7 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
             className="bg-gray-500 text-white rounded-lg px-4 py-2 mr-2"
             onClick={() => handleClose()}
           >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white rounded-lg px-4 py-2"
-          >
-            Save
+            Back
           </button>
         </div>
       </div>
