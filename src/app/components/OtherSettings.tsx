@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useUser } from "../Providers/UserProvider";
+import saveLowHighNumberFct from "../api/auth/dashboardFunctions/saveLowHighNumber";
+import { User } from "../types/types";
 
 interface OtherSettingsProps {
   onClose: () => void;
@@ -10,8 +12,20 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
 
   const [autoPayment, setAutoPayment] = useState(user.user?.autoPayment);
 
+  const [lowNumber, setLowNumber] = useState(user.user?.lowNumber || 0);
+  const [highNumber, setHighNumber] = useState(user.user?.highNumber || 0);
+
   const handleClose = () => {
     onClose();
+  };
+
+  const handleSaveLowHighNumber = async () => {
+    await saveLowHighNumberFct(
+      user.user || ({} as User),
+      lowNumber,
+      highNumber
+    );
+    await user.getUserData();
   };
 
   return (
@@ -70,25 +84,28 @@ const OtherSettings: React.FC<OtherSettingsProps> = ({ onClose }) => {
           </select>
           <p className="text-gray-500">Adjust your theme settings.</p>
         </div>
-        
+
         <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Number Range
-            </h2>
-            <div className="flex">
-              <input
-                type="number"
-                className="w-1/2 py-4 px-2 border-2 rounded-lg mr-2"
-                placeholder="Low Number"
-              />
-              <input
-                type="number"
-                className="w-1/2 py-4 px-2 border-2 rounded-lg"
-                placeholder="High Number"
-              />
-            </div>
-            <p className="text-gray-500">Enter the low and high numbers.</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Number Range
+          </h2>
+          <div className="flex">
+            <input
+              type="number"
+              className="w-1/2 py-4 px-2 border-2 rounded-lg mr-2"
+              placeholder="Low Number"
+              onChange={(e) => setLowNumber(parseInt(e.target.value))}
+            />
+            <input
+              type="number"
+              className="w-1/2 py-4 px-2 border-2 rounded-lg"
+              placeholder="High Number"
+              onChange={(e) => setHighNumber(parseInt(e.target.value))}
+            />
+            <button onClick={handleSaveLowHighNumber}>Save</button>
           </div>
+          <p className="text-gray-500">Enter the low and high numbers.</p>
+        </div>
 
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">

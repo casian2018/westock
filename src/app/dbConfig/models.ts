@@ -63,7 +63,45 @@ const user = new mongoose.Schema({
     type: String,
     required: true,
   },
+  lowNumber: {
+    type: Number,
+    required: true,
+  },
+  highNumber: {
+    type: Number,
+    required: true,
+  },
+});
+
+const invitedUser = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  dateCreated: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  permissions: {
+    type: String,
+    required: true,
+  },
+  manager: {
+    type: String,
+    required: true,
+  },
 });
 
 export const userModel =
   mongoose.models?.users || mongoose.model("users", user);
+
+export const invitedUserModel =
+  mongoose.models?.invitedUsers || mongoose.model("invitedUsers", invitedUser);

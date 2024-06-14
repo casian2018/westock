@@ -51,6 +51,18 @@ interface User {
   };
   autoPayment: boolean;
   theme: string;
+  lowNumber: number;
+  highNumber: number;
 }
 
-export type { Stock, People, Objects, User };
+interface InvitedUser {
+  _id: string;
+  name: string;
+  email: string;
+  dateCreated: string;
+  permissions: string;
+  password: string;
+  manager: string;
+}
+
+export type { Stock, People, Objects, User, InvitedUser };

@@ -58,6 +58,8 @@ export default async function register(
       },
       autoPayment: true,
       theme: "light",
+      lowNumber: 0,
+      highNumber: 0,
     });
 
     await user.save();
